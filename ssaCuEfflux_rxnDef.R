@@ -24,8 +24,19 @@ rxn[['Cu export']] = list(
 	a = '0.1*P0700.Cu', 
 	nu = setStoic(x, c('P0700.Cu', 'P0700', 'Cu.out'), c(-1, +1, +1)))
 
+k.Cu.Import = function(Cu.out, Cu.T, Cu.PartCoef = 1000, k.Cu.Import.BaseRate = 1e-5) {
+	grad = Cu.out - Cu.T*Cu.PartCoef
+	rate = 0
+	if (grad >= 0) {
+		rate = grad*k.Cu.Import.BaseRate
+	}
+	
+	return(rate)
+}
 rxn[['Cu import']] = list(
-	a = 'k.Cu.Import*Cu.out', 
+	a = paste('k.Cu.Import(Cu.out, ',
+						paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], collapse='+'),
+						')*Cu.out', sep="", collapse = ""), 
 	nu = setStoic(x, c('Cu.out', 'Cu'), c(-1, +1)))
 
 rxn[['D0700 P1179.Cu binding']] = list(
