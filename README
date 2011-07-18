@@ -1,0 +1,2 @@
+Model code for Cu Efflux in Halobacterium salinarum
+Primarily written in R using the GillespieSSA package
