@@ -33,7 +33,8 @@ x0 <- c(Cu							= 0,
 				P1179.Cu.Dgfp   = 0,
 				Pgfp            = 0,
 				Q               = 100,
-				Q.Cu            = 0)
+				Q.Cu            = 0, 
+				V               = 1000)
 
 # this is for building the stoic matrix see below in reaction defs
 x <- rep(0, length(x0))
