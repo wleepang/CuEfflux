@@ -152,10 +152,25 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
 # new Exact Time-dependent Gillespie algorithm as described by
 # Lu et.al Syst. Biol. (stevenage) Vol 1, No 1, 2004
 GillespieSSA:::ssa.d.etg <- function (a = stop("missing propensity vector (a)"), 
+																			a.s = stop("missing time dependent propensity logical vector (a.s)"), 
 																			nu = stop("missing state-change matrix (nu)")) 
 {
-    j <- sample(seq(length(a)), size = 1, prob = a)
-    nu_j <- nu[, j]
-    tau <- -log(runif(1))/sum(a)
-    return(list(tau = tau, nu_j = nu_j))
+  A.s = sum(a[a.s])
+  A.q = sum(a[!a.s])
+  
+  u1 = runif(1)
+  u2 = runif(1)
+  
+  if (A.q == 0) {
+  	tau = (1/c)*log(A.s / (A.s + c*log(1 - u1)))
+  } else {
+  	alpha = A.s/A.q
+  	beta = c*log(u1)/A.q
+  	tau = (1/c)*lambertW(alpha*exp(alpha + beta))-alpha-beta
+  }
+  
+	j <- sample(seq(length(a)), size = 1, prob = a)
+  nu_j <- nu[, j]
+  tau <- -log(runif(1))/sum(a)
+  return(list(tau = tau, nu_j = nu_j))
 }
