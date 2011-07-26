@@ -1,5 +1,5 @@
 GillespieSSA:::ssa <- function (x0 = stop("undefined 'x0'"), a = stop("undefined 'a'"), 
-    nu = stop("undefined 'nu'"), parms = NULL, tf = stop("undefined 'tf'"), 
+    nu = stop("undefined 'nu'"), parms = NULL, ti = 0, tf = stop("undefined 'tf'"), 
     method = "D", simName = "", tau = 0.3, f = 10, epsilon = 0.03, 
     nc = 10, hor = NaN, dtf = 10, nd = 100, ignoreNegativeState = TRUE, 
     consoleInterval = 0, censusInterval = 0, verbose = FALSE, 
@@ -23,12 +23,12 @@ GillespieSSA:::ssa <- function (x0 = stop("undefined 'x0'"), a = stop("undefined
         if (method == "OTL") 
             method <- "OTL.diag"
     }
-    args <- list(x0 = x0, a = a, nu = nu, parms = parms, tf = tf, 
+    args <- list(x0 = x0, a = a, nu = nu, parms = parms, ti = ti, tf = tf, 
         method = method, tau = tau, f = f, epsilon = epsilon, 
         nc = nc, hor = hor, dtf = dtf, nd = nd, ignoreNegativeState = ignoreNegativeState, 
         consoleInterval = consoleInterval, censusInterval = censusInterval, 
         verbose = verbose, simName = simName)
-    out.rxn <- ssa.run(x0, a, nu, parms, tf, method, tau, f, 
+    out.rxn <- ssa.run(x0, a, nu, parms, ti, tf, method, tau, f, 
         epsilon, nc, hor, dtf, nd, ignoreNegativeState, consoleInterval, 
         censusInterval, verbose, maxWallTime)
     out.summary <- ssa.terminate(args, out.rxn, tf, method, maxWallTime, 
@@ -36,7 +36,7 @@ GillespieSSA:::ssa <- function (x0 = stop("undefined 'x0'"), a = stop("undefined
     return(out.summary)
 }
 
-GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilon, nc, 
+GillespieSSA:::ssa.run <- function (x0, a, nu, parms, ti, tf, method, tau, f, epsilon, nc, 
     hor, dtf, nd, ignoreNegativeState, consoleInterval, censusInterval, 
     verbose, maxWallTime) 
 {
@@ -55,11 +55,21 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
         for (.i in seq(length(parmsNames))) assign(parmsNames[.i], 
             parms[[.i]])
     }
+    
+    # define .t as simulation time
+    # define .T as model time
     .t <- 0
+    .T <- ti 			# model initial time
+    TF <- tf      # model final time
+    tf <- tf - ti
+    
+    # difference between model time and simulation time
+    .dTt <- .T - .t
+    
     timeOfNextCensus <- .t + censusInterval
     timeForConsole <- .t + consoleInterval
     timeToTerminate <- FALSE
-    timeSeries <- c(.t, .x)
+    timeSeries <- c(.T, .x)
     numCols <- length(timeSeries)
     timeSeries <- rbind(timeSeries, matrix(nrow = 1000, ncol = (numCols)))
     .M <- length(.a)
@@ -86,7 +96,7 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
         flush.console()
     }
     if ((verbose) & (consoleInterval > 0)) {
-        cat("t=", .t, " : ", sep = "")
+        cat("t (sim | model) = ", .t, " | ", .T, " : ", sep = "")
         cat(.x, sep = ",")
         cat("\n")
         flush.console()
@@ -95,11 +105,10 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
     currentRow <- 2
     suspendedTauLeapMethod <- FALSE
     nSuspendedTauLeaps <- 0
-    while ((.t < tf) & (any(.x > 0)) & (all(.x >= 0)) & (any(eval_a > 
-        0)) & (elapsedWallTime <= maxWallTime)) {
+    while ((.t < tf) & (any(.x > 0)) & (all(.x >= 0)) & (any(eval_a > 0)) & (elapsedWallTime <= maxWallTime)) {
         doCalc <- TRUE
         if ((verbose) & (timeForConsole <= .t)) {
-            cat("(", elapsedWallTime, "s) t=", .t, " : ", sep = "")
+            cat("(", elapsedWallTime, "s) t (sim | model) = ", .t, " | ", .T," : ", sep = "")
             cat(.x, sep = ",")
             cat("\n")
             flush.console()
@@ -108,21 +117,18 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
         switch(method, D = {
             out <- ssa.d(eval_a, .nu)
             if (suspendedTauLeapMethod) {
-                suspendedTauLeapMethod <- suspendedTauLeapMethod - 
-                  1
+                suspendedTauLeapMethod <- suspendedTauLeapMethod - 1
                 nSuspendedTauLeaps <- nSuspendedTauLeaps + 1
                 if (!suspendedTauLeapMethod) method <- "OTL"
             }
         }, D.ETG = {
-        		out <- ssa.d.etg(eval_a, a.s, .nu, .t, .x, partitionedSpecies)
-        		
+        		out <- ssa.d.etg(eval_a, a.s, .nu, .T, .x, partitionedSpecies)
         }, ETL = {
             out <- ssa.etl(eval_a, .nu, .tau)
         }, BTL = {
             out <- ssa.btl(.x, eval_a, .nu, .f)
         }, OTL = {
-            out <- ssa.otl(.x, eval_a, .nu, hor, .nc, .epsilon, 
-                dtf, nd)
+            out <- ssa.otl(.x, eval_a, .nu, hor, .nc, .epsilon, dtf, nd)
             suspendedTauLeapMethod <- out$suspendedTauLeapMethod
             if (suspendedTauLeapMethod) {
                 method <- "D"
@@ -131,8 +137,7 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
         }, D.diag = {
             out <- ssa.d.diag(eval_a, .nu)
             if (suspendedTauLeapMethod) {
-                suspendedTauLeapMethod <- suspendedTauLeapMethod - 
-                  1
+                suspendedTauLeapMethod <- suspendedTauLeapMethod - 1
                 nSuspendedTauLeaps <- nSuspendedTauLeaps + 1
                 if (!suspendedTauLeapMethod) method <- "OTL.diag"
             }
@@ -141,8 +146,7 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
         }, BTL.diag = {
             out <- ssa.btl.diag(.x, eval_a, .nu, .f)
         }, OTL.diag = {
-            out <- ssa.otl.diag(.x, eval_a, .nu, hor, .nc, .epsilon, 
-                dtf, nd)
+            out <- ssa.otl.diag(.x, eval_a, .nu, hor, .nc, .epsilon, dtf, nd)
             suspendedTauLeapMethod <- out$suspendedTauLeapMethod
             if (suspendedTauLeapMethod) {
                 method <- "D.diag"
@@ -151,6 +155,7 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
         }, stop("unknown SSA method"))
         if (doCalc) {
             .t <- .t + out$tau
+            .T <- .T + out$tau
             .x <- .x + out$nu_j
             if ((any(.x < 0)) & (!ignoreNegativeState)) {
                 cat("at least one population in 'x' is negative. Bailing to browser...\n")
@@ -158,32 +163,35 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
             }
             stepSize <- c(stepSize, out$tau)
             if (timeOfNextCensus <= .t) {
-                timeSeries[currentRow, ] <- c(.t, .x)
+                timeSeries[currentRow, ] <- c(.T, .x)
                 currentRow <- currentRow + 1
                 timeOfNextCensus <- .t + censusInterval
                 if (currentRow > dim(timeSeries)[1]) 
                   timeSeries <- rbind(timeSeries, matrix(nrow = 1000, 
                     ncol = (numCols)))
             }
-            for (.i in seq(length(varNames))) assign(varNames[.i], 
-                .x[[.i]])
+            
+            for (.i in seq(length(varNames))) assign(varNames[.i], .x[[.i]])
             for (.i in seq(length(parse_a))) eval_a[.i] <- eval(parse_a[.i])
+            
             eval_a[is.na(eval_a)] <- 0
+            
             if (any(eval_a < 0)) 
                 warning("negative propensity function - coersing to zero\n")
+            
             eval_a[eval_a < 0] <- 0
         }
         procTimeEnd <- proc.time()
         elapsedWallTime <- procTimeEnd[3] - procTimeStart[3]
     }
     if (verbose) {
-        cat("t=", .t, " : ", sep = "")
+        cat("t (sim | model) = ", .t, " | ", .T," : ", sep = "")
         cat(.x, sep = ",")
         cat("\n")
         flush.console()
     }
     timeSeries <- timeSeries[!is.na(timeSeries[, 1]), ]
-    timeSeries <- rbind(timeSeries, c(.t, .x))
+    timeSeries <- rbind(timeSeries, c(.T, .x))
     endWallTime <- format(Sys.time())
     return(list(timeSeries = timeSeries, eval_a = eval_a, elapsedWallTime = elapsedWallTime, 
         startWallTime = startWallTime, endWallTime = endWallTime, 
@@ -195,7 +203,7 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, tf, method, tau, f, epsilo
 GillespieSSA:::ssa.d.etg <- function (a   = stop("missing propensity vector (a)"), 
 																			a.s = stop("missing time dependent propensity logical vector (a.s)"), 
 																			nu  = stop("missing state-change matrix (nu)"), 
-																	    t   = stop("missing time value"), 
+																			.T  = stop("missing model time value"), 
 																			x   = stop("missing populations vector"),
 																			x.p = stop("missing partitioned species vector")) 
 {
@@ -220,18 +228,26 @@ GillespieSSA:::ssa.d.etg <- function (a   = stop("missing propensity vector (a)"
   	tau = -(1/A.q)*log(u1)
   }
   
+  # cell division is triggered by model time not simulation time
+  # thus, to randomize starting volume ti (initial time) must be reflective of
+  # initial starting volume according to V(T) = V0*exp(c*T)
+  # (note: model time T should be normalized by the cell division time s.t.:
+  #   t.d = log(2)/mu
+  #   T = .t / t.d
+  # )
   cellDivision = FALSE
-  if ((t %% 1) + tau < 1) {
+  if ((.T %% 1) + tau < 1) {
   	# select reaction channel
 		j <- sample(seq(length(a)), size = 1, prob = a)
 	  nu_j <- nu[, j]
   	# update time exactly
   } else {
     # update time to next cell division time
-  	tau = 1 - (t %% 1)
+  	tau = 1 - (.T %% 1)
   	
   	# non-reaction based particle change
   	# nu_j is used to divide cell populations in half
+  	# note: V can be a partitionable species
   	nu_j = rep(0, dim(nu)[1])
   	nu_j[x.p] = -(x[x.p] / 2)
   	
