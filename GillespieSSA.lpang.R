@@ -1,4 +1,4 @@
-GillespieSSA:::ssa <- function (x0 = stop("undefined 'x0'"), a = stop("undefined 'a'"), 
+ssa <- function (x0 = stop("undefined 'x0'"), a = stop("undefined 'a'"), 
     nu = stop("undefined 'nu'"), parms = NULL, ti = 0, tf = stop("undefined 'tf'"), 
     method = "D", simName = "", tau = 0.3, f = 10, epsilon = 0.03, 
     nc = 10, hor = NaN, dtf = 10, nd = 100, ignoreNegativeState = TRUE, 
@@ -36,7 +36,7 @@ GillespieSSA:::ssa <- function (x0 = stop("undefined 'x0'"), a = stop("undefined
     return(out.summary)
 }
 
-GillespieSSA:::ssa.run <- function (x0, a, nu, parms, ti, tf, method, tau, f, epsilon, nc, 
+ssa.run <- function (x0, a, nu, parms, ti, tf, method, tau, f, epsilon, nc, 
     hor, dtf, nd, ignoreNegativeState, consoleInterval, censusInterval, 
     verbose, maxWallTime) 
 {
@@ -200,7 +200,7 @@ GillespieSSA:::ssa.run <- function (x0, a, nu, parms, ti, tf, method, tau, f, ep
 
 # new Exact Time-dependent Gillespie algorithm as described by
 # Lu et.al Syst. Biol. (stevenage) Vol 1, No 1, 2004
-GillespieSSA:::ssa.d.etg <- function (a   = stop("missing propensity vector (a)"), 
+ssa.d.etg <- function (a   = stop("missing propensity vector (a)"), 
 																			a.s = stop("missing time dependent propensity logical vector (a.s)"), 
 																			nu  = stop("missing state-change matrix (nu)"), 
 																			.T  = stop("missing model time value"), 
@@ -221,7 +221,12 @@ GillespieSSA:::ssa.d.etg <- function (a   = stop("missing propensity vector (a)"
   	
   } else if (A.q == 0 && A.s != 0) {
   	# only time dependent reactions
-  	tau = (1/c)*log(A.s / (A.s + c*log(1 - u1)))
+    if (u1 > 1-exp(-A.s/c)) {
+    	# advance to next division
+    	tau = 1- (.T %% 1)
+    } else {
+    	tau = (1/c)*log(A.s / (A.s + c*log(1 - u1)))
+    }
   	
   } else if (A.q != 0 && A.s == 0) {
   	# only time independent reactions (standard Gillespie)
@@ -236,7 +241,7 @@ GillespieSSA:::ssa.d.etg <- function (a   = stop("missing propensity vector (a)"
   #   T = .t / t.d
   # )
   cellDivision = FALSE
-  if ((.T %% 1) + tau < 1) {
+  if (((.T %% 1) + tau) < 1) {
   	# select reaction channel
 		j <- sample(seq(length(a)), size = 1, prob = a)
 	  nu_j <- nu[, j]
@@ -249,13 +254,15 @@ GillespieSSA:::ssa.d.etg <- function (a   = stop("missing propensity vector (a)"
   	# nu_j is used to divide cell populations in half
   	# note: V can be a partitionable species
   	nu_j = rep(0, dim(nu)[1])
-  	nu_j[x.p] = -(x[x.p] / 2)
+  	nu_j[x.p] = -floor(x[x.p] / 2)
   	
   	# reset volume
   	# partition "free" species
   	cellDivision = TRUE
   	
   }
+  
+  print(c(.T=.T, A.s=A.s, A.q=A.q, u1=u1, tau=tau, cellDivision=cellDivision))
   
   
   return(list(tau = tau, nu_j = nu_j, cellDivision = cellDivision))
