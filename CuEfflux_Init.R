@@ -1,14 +1,4 @@
-## initialize Cu Efflux model
-
-# Define parameters
-#parms <- c(c1=1.0, c2=0.002, c3=0.5, c4=0.04)
-
-kGenomeCopy = 15
-isKO = FALSE
-isOE = FALSE
-mu = 1/(7*60*60) # cell growth rate 1/s
-
-# Initial state vector
+## Initial state vector
 x0 <- c(Cu							= 0, 
 				Cu.out					= 500000,
 				D0700           = kGenomeCopy,
@@ -33,4 +23,4 @@ x0 <- c(Cu							= 0,
 				Pgfp            = 0,
 				Q               = 100,
 				Q.Cu            = 0, 
-				V               = 1000)
+				V               = 1)
