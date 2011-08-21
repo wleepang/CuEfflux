@@ -15,10 +15,10 @@ dxdt = function(time, x, parms, ...) {
     for (.i in 1:length(parse_a)) {
       eval_a[.i] = eval(parse_a[.i])
     }
-    if (any(eval_a < 0)) {
-      warning("negative propensities coerced to zero")
-      eval_a[any(eval_a)] = 0
-    }
+#     if (any(eval_a < 0)) {
+#       warning("negative propensities coerced to zero")
+#       eval_a[any(eval_a)] = 0
+#     }
     
     dxdt = drop(sign(nu) %*% eval_a)
     return(list(dxdt))
@@ -36,7 +36,7 @@ dxdt = function(time, x, parms, ...) {
 	}
 	
 	if (!is.null(data) && !is.null(fun)) {
-		return(apply(data[, col.ix], 1, fun))
+		return(apply(data[, col.ix, drop=F], 1, fun))
 	} else if (!is.null(data) && is.null(fun)) {
 		return(data[, col.ix])
 	} else {
@@ -95,7 +95,7 @@ printf = function(fmt, ...) {
 }
 
 ## performs scans of model
-model.scan = function(ScanVar, ScanLevels, file.prefix='scan') {
+model.scan = function(ScanVar, ScanLevels, file.prefix='scan', t.final=36000, t.step=100) {
 	printf('%s\n', file.prefix)
 	printf('Scanning %d levels in %s:\n', length(Levels), ScanVar)
 	printf('%5s%15s%15s\n', '#', 'Value', 'Sim.Time (s)')
@@ -108,7 +108,7 @@ model.scan = function(ScanVar, ScanLevels, file.prefix='scan') {
 		printf('%5d%15e', iter, Level)
 		
 		tic()
-		out = ode(x0, seq(0,36000,by=1), dxdt, list(nu=nu, a=a), method='bdf')
+		out = ode(x0, seq(0,t.final,by=t.step), dxdt, list(nu=nu, a=a), method='daspk')
 		t.done = toc(F)
 		
 		printf('%15.2f\n', t.done)

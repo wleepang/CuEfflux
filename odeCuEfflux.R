@@ -1,4 +1,5 @@
 library(deSolve)
+library(matlab)
 source('CuEfflux_Func.R')
 
 # set global values
@@ -14,17 +15,26 @@ source('CuEfflux_rxnDef.R')
 nu = set.nu(rxn)
 a  = set.a(rxn)
 
-out = ode(x0, seq(0,36000,by=1), dxdt, list(nu=nu, a=a), method='bdf', verbose=T)
+tic()
+out = ode(x0, seq(0,18000,by=10), dxdt, list(nu=nu, a=a), method='daspk')
+toc()
 
 ## plot mRNA dynamics of default system
 t.abs = out[,'time'] / 60 # sim time is in seconds, convert to minutes
 
+plot(t.abs, .T('Cu', out)/out[,'V'], type='l')
+
 rna = cbind(out[, 'M0700'], out[, 'M0702'], out[, 'Mgfp'])/out[,'V']
-matplot(t.abs, rna, type='l', col=c('blue', 'red', 'green'), lwd=3, lty=1, xlim=c(0.006,600), ann=F)
+matplot(t.abs, rna, type='l', col=c('blue', 'red', 'green'), lwd=3, lty=1, ann=F)
 legend('topright', c('0700', 'Chaperone', 'gfp'), cex=0.8, lwd=3, col=c('blue', 'red', 'green'), bty='n')
-title(xlab='Time (min)', ylab='# mRNA per cell')
+title(xlab='Time (min)', ylab='mRNA Conc')
 
 prot = cbind(.T('P0700', out), .T('P0702', out)/10, out[, 'Pgfp'])/out[,'V']
-matplot(t.abs, prot, type='l', col=c('blue', 'red', 'green'), lwd=3, lty=1, xlim=c(0.006,600), ann=F)
+matplot(t.abs, prot, type='l', col=c('blue', 'red', 'green'), lwd=3, lty=1, ann=F)
 legend('topright', c('0700', 'Chaperone (x10)', 'GFP'), cex=0.8, lwd=3, col=c('blue', 'red', 'green'), bty='n')
-title(xlab='Time (min)', ylab='# Proteins per cell')
+title(xlab='Time (min)', ylab='Protein Conc')
+
+#t.abs[which(rna[,1] == max(rna[,1]))]
+print(as.vector(.T('Cu', out)/out[,'V'])[length(t.abs)])
+
+#save(out, nu, a, x0, file='wt_ts.RData')

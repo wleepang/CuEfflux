@@ -16,14 +16,14 @@ rxn = list()
 
 rxn[['Cu export']] = list(
 	a = '0.1*P0700.Cu', 
-	nu = setStoic(x, c('P0700.Cu', 'P0700', 'Cu.out'), c(-1, +1, +1)))
+	nu = setStoic(x, c('P0700.Cu', 'P0700'), c(-1, +1)))
 
 rxn[['Cu import']] = list(
 	a = paste('k.Cu.Import(Cu.out, ',
 						paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], collapse='+'),
-						')*Cu.out', sep="", collapse = ""), 
+						')*V', sep="", collapse = ""), 
 	a.s = FALSE, 
-	nu = setStoic(x, c('Cu.out', 'Cu'), c(-1, +1)))
+	nu = setStoic(x, c('Cu'), c(+1)))
 
 rxn[['D0700 P1179.Cu binding']] = list(
 	a = '0.01*P1179.Cu*D0700/V^2', 
@@ -226,11 +226,26 @@ rxn[['V growth']] = list(
 	nu = setStoic(x, 'V', +1))
 
 rxn[['Q growth']] = list(
-	a = paste('mu*(', paste(X.T('Q'), collapse='+'), ')', sep='', collapse=''),
+	a = paste('mu*(', paste(.T('Q'), collapse='+'), ')', sep='', collapse=''),
 	a.s = FALSE,
 	nu = setStoic(x, 'Q', +1))
 
 rxn[['P1179 growth']] = list(
-	a = paste('mu*(', paste(X.T('P1179'), collapse='+'), ')', sep='', collapse=''),
+	a = paste('mu*(', paste(.T('P1179'), collapse='+'), ')', sep='', collapse=''),
 	a.s = FALSE,
 	nu = setStoic(x, 'P1179', +1))
+
+rxn[['D0700 growth']] = list(
+	a = paste('mu*(', paste(.T('D0700'), collapse='+'), ')', sep='', collapse=''),
+	a.s = FALSE,
+	nu = setStoic(x, 'D0700', +1))
+
+rxn[['D0702 growth']] = list(
+	a = paste('mu*(', paste(.T('D0702'), collapse='+'), ')', sep='', collapse=''),
+	a.s = FALSE,
+	nu = setStoic(x, 'D0702', +1))
+
+rxn[['Dgfp growth']] = list(
+	a = paste('mu*(', paste(.T('Dgfp'), collapse='+'), ')', sep='', collapse=''),
+	a.s = FALSE,
+	nu = setStoic(x, 'Dgfp', +1))
