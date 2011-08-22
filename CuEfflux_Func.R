@@ -114,7 +114,7 @@ model.scan = function(ScanVar, ScanLevels, file.prefix='scan', t.final=36000, t.
 		printf('%15.2f\n', t.done)
 		
 		# save this sim run for later processing if necessary
-		save(out, file=sprintf('%s_iter-%05d.RData', file.prefix, iter))
+		save(out, file=sprintf('./RData/%s_iter-%05d.RData', file.prefix, iter))
 		
 		# collect endpoint values
 		t.end = dim(out)[1]
@@ -125,7 +125,7 @@ model.scan = function(ScanVar, ScanLevels, file.prefix='scan', t.final=36000, t.
 	}
 	printf('DONE\n')
 	
-	save(scan.result, nu, a, x0, file=sprintf('%s_result.RData', file.prefix))
+	save(scan.result, nu, a, x0, file=sprintf('./RData/%s_result.RData', file.prefix))
 	
 	return(scan.result)
 
