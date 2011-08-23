@@ -97,7 +97,7 @@ printf = function(fmt, ...) {
 ## performs scans of model
 model.scan = function(ScanVar, ScanLevels, file.prefix='scan', t.final=36000, t.step=100) {
 	printf('%s\n', file.prefix)
-	printf('Scanning %d levels in %s:\n', length(Levels), ScanVar)
+	printf('Scanning %d levels in %s:\n', length(ScanLevels), ScanVar)
 	printf('%5s%15s%15s\n', '#', 'Value', 'Sim.Time (s)')
 	
 	iter = 1
@@ -122,6 +122,49 @@ model.scan = function(ScanVar, ScanLevels, file.prefix='scan', t.final=36000, t.
 												c(id=iter, Level=Level, out[t.end, -1]))
 		
 		iter = iter + 1
+	}
+	printf('DONE\n')
+	
+	save(scan.result, nu, a, x0, file=sprintf('./RData/%s_result.RData', file.prefix))
+	
+	return(scan.result)
+
+}
+
+## perform 2d scan of model
+model.scan.2d = function(ScanVars, ScanLevels, file.prefix='scan', t.final=36000, t.step=100) {
+	if (length(ScanVars) < 2) stop('ScanVars must be of length 2')
+	
+	printf('%s\n', file.prefix)
+	printf('Scanning %d levels in %s:\n', length(ScanLevels[[ScanVars[1]]]), ScanVars[1])
+	printf('Scanning %d levels in %s:\n', length(ScanLevels[[ScanVars[2]]]), ScanVars[2])
+	printf('%5s%15s%15s%15s\n', '#', 'Value-1', 'Value-2', 'Sim.Time (s)')
+	
+	iter = 1
+	scan.result = NULL
+	for (iLevel in ScanLevels[[ScanVars[1]]]) {
+		x0[[ScanVars[1]]] = iLevel
+		for (jLevel in ScanLevels[[ScanVars[2]]]) {
+			x0[[ScanVars[2]]] = jLevel
+			
+			printf('%5d%15e%15e', iter, iLevel, jLevel)
+			
+			tic()
+			out = ode(x0, seq(0,t.final,by=t.step), dxdt, list(nu=nu, a=a), method='daspk')
+			t.done = toc(F)
+			
+			printf('%15.2f\n', t.done)
+			
+			# save this sim run for later processing if necessary
+			save(out, file=sprintf('./RData/%s_iter-%05d.RData', file.prefix, iter))
+			
+			# collect endpoint values
+			t.end = dim(out)[1]
+			scan.result = rbind(scan.result, 
+													c(id=iter, iLevel=iLevel, jLevel=jLevel, out[t.end, -1]))
+			
+			iter = iter + 1
+		}
 	}
 	printf('DONE\n')
 	

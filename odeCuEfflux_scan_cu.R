@@ -39,14 +39,31 @@ a  = set.a(rxn)
 
 scan.result.cu.oe = model.scan('Cu.out', Levels, 'oe_scan_CuOut', t.final=t.final)
 
+# adjusted oe scan cu.out level
+source('CuEfflux_GlobalParams.R')
+isOE = TRUE
+source('CuEfflux_Init.R')
+source('CuEfflux_rxnDef.R')
+
+rxn[['OE0702 transcription']] = list(
+	a = '0.646571*OE0702/100', # in order to get OE to be like expt. divide by factor of 100
+	a.s = FALSE, 
+	nu = setStoic(x, 'M0702', +1))
+
+nu = set.nu(rxn)
+a  = set.a(rxn)
+
+scan.result.cu.oe2 = model.scan('Cu.out', Levels, 'oe2_scan_CuOut', t.final=t.final)
+
 ################################################################################
 # Plot scan results
 srcuw = scan.result.cu.wt
 srcuk = scan.result.cu.ko
 srcuo = scan.result.cu.oe
+srcuo2= scan.result.cu.oe2
 
 ###
-plot.cus = function(s, include=c('w', 'k', 'o'), log='xy') {
+plot.cus = function(s, include=c('w', 'k', 'o', 'o2'), log='xy', ...) {
 	X = NULL
 	col = NULL
 	if ('w' %in% include) {
@@ -61,6 +78,10 @@ plot.cus = function(s, include=c('w', 'k', 'o'), log='xy') {
 		X = cbind(X, .T(s, srcuo))
 		col = c(col, 'green')
 	}
+	if ('o2' %in% include) {
+		X = cbind(X, .T(s, srcuo2))
+		col = c(col, 'orange')
+	}
 	
 	if (is.null(X)) stop('Nothing to plot!')
 	
@@ -70,7 +91,7 @@ plot.cus = function(s, include=c('w', 'k', 'o'), log='xy') {
 					log=log, 
 					type='l', lty=1, lwd=3,
 					col=col, 
-					ann=F)
+					ann=F, ...)
 	lines(c(5e5,5e5), c(1e-12, 1e12), col='#ffcc00', lty=2)
 	title(xlab='Cu.out', ylab=s)
 }

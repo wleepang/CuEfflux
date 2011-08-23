@@ -4,7 +4,7 @@ source('CuEfflux_Func.R')
 
 # set global values
 source('CuEfflux_GlobalParams.R')
-
+isOE=T
 # initialize set model parameters and initial state
 source('CuEfflux_Init.R')
 
@@ -36,5 +36,6 @@ title(xlab='Time (min)', ylab='Protein Conc')
 
 #t.abs[which(rna[,1] == max(rna[,1]))]
 print(as.vector(.T('Cu', out)/out[,'V'])[length(t.abs)])
+print(as.vector(.T('P0700', out)/out[,'V'])[length(t.abs)])
 
 #save(out, nu, a, x0, file='wt_ts.RData')
