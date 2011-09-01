@@ -4,13 +4,15 @@ library(matlab)
 source('CuEfflux_Func.R')
 
 par(mfcol=c(3,7),mai=c(0.3,0.3,0.1,0.1))
-result = NULL
+result = matrix(0, nrow=7, ncol=2)
+colnames(result) = c('cu.ss', 'P0700.ss')
+rownames(result) = c('wt', 'D0702', 'D2581', 'DD', 'O0702', 'O2581', 'OO')
 
 Strain = data.frame(strain=c('wt', 'D0702', 'D2581', 'DD', 'O0702', 'O2581', 'OO'),
 										KO0702=c(F, T, F, T, F, F, F),
 										KO2581=c(F, F, T, T, F, F, F), 
-										OE0702=c(F, F, F, T, F, F, T),
-										OE2581=c(F, F, F, F, T, F, T))
+										OE0702=c(F, F, F, F, T, F, T),
+										OE2581=c(F, F, F, F, F, T, T))
 
 for (i in 1:dim(Strain)[1]) {
 	s = Strain[i,]
@@ -51,8 +53,11 @@ for (i in 1:dim(Strain)[1]) {
 	cu.ss = as.vector(.T('Cu', out)/out[,'V'])[length(t.abs)]
 	P0700.ss = as.vector(.T('P0700', out)/out[,'V'])[length(t.abs)]
 	
-	result = cbind(result, list(strain=s$strain, cu.ss=cu.ss, P0700.ss=P0700.ss))
+	result[s$strain,] = c(cu.ss, P0700.ss)
 }
 
 # plot the result
-par(mfcol=c(1,1), mai=c(0.8, 0.8, 0.2, 0.2))
+par(mfcol=c(1,2), mai=c(0.8, 1.1, 0.3, 0.1))
+barplot(result[,'cu.ss'], names.arg=rownames(result), ylab='[Cu]')
+barplot(result[,'P0700.ss'], names.arg=rownames(result), ylab='[P0700]')
+
