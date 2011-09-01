@@ -165,20 +165,20 @@ rxn[['P0700 translation']] = list(
 	a.s = FALSE, 
 	nu = setStoic(x, 'P0700', +1))
 
-# rxn[['P0702.Cu bind']] = list(
-# 	a = '0.01*P0702*Cu/V^2', 
-# 	a.s = FALSE, 
-# 	nu = setStoic(x, c('P0702', 'Cu', 'P0702.Cu'), c(-1, -1, +1)))
+rxn[['P0702.Cu bind']] = list(
+	a = '0.01*P0702*Cu/V^2', 
+	a.s = FALSE, 
+	nu = setStoic(x, c('P0702', 'Cu', 'P0702.Cu'), c(-1, -1, +1)))
 
 rxn[['P0702.Cu by P1179 +1']] = list(
 	a = '0.01*P0702*P1179.Cu/V^2', 
 	a.s = FALSE, 
 	nu = setStoic(x, c('P0702', 'P1179.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
 
-rxn[['P0702.Cu by P2581 +1']] = list(
-	a = '0.01*P0702*P2581.Cu/V^2', 
-	a.s = FALSE, 
-	nu = setStoic(x, c('P0702', 'P2581.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
+# rxn[['P0702.Cu by P2581 +1']] = list(
+# 	a = '0.01*P0702*P2581.Cu/V^2', 
+# 	a.s = FALSE, 
+# 	nu = setStoic(x, c('P0702', 'P2581.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
 
 rxn[['P0702.Cu by Q +1']] = list(
 	a = '0.01*P0702*Q.Cu/V^2', 
@@ -215,10 +215,10 @@ rxn[['P2581.Cu by P1179 +1']] = list(
 	a.s = FALSE, 
 	nu = setStoic(x, c('P2581', 'P1179.Cu', 'P2581.Cu.P1179'), c(-1, -1, +1)))
 
-rxn[['P2581.Cu by P0702 +1']] = list(
-	a = '0.01*P2581*P0702.Cu/V^2', 
-	a.s = FALSE, 
-	nu = setStoic(x, c('P2581', 'P0702.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
+# rxn[['P2581.Cu by P0702 +1']] = list(
+# 	a = '0.01*P2581*P0702.Cu/V^2', 
+# 	a.s = FALSE, 
+# 	nu = setStoic(x, c('P2581', 'P0702.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
 
 rxn[['P2581.Cu by Q +1']] = list(
 	a = '0.01*P2581*Q.Cu/V^2', 
