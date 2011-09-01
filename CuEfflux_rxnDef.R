@@ -106,12 +106,12 @@ rxn[['Mgfp transcription']] = list(
 	nu = setStoic(x, c('P1179.Cu.Dgfp', 'P1179.Cu', 'Dgfp', 'Mgfp'), c(-1, +1, +1, +1)))
 
 rxn[['OE0702 transcription']] = list(
-	a = '0.646571*OE0702', # in order to get OE to be like expt. divide by factor of 100
+	a = '0.646571*OE0702/100', # in order to get OE to be like expt. divide by factor of 100
 	a.s = FALSE, 
 	nu = setStoic(x, 'M0702', +1))
 
 rxn[['OE2581 transcription']] = list(
-	a = '0.424167*OE2581', # in order to get OE to be like expt. divide by factor of 100
+	a = '0.424167*OE2581/100', # in order to get OE to be like expt. divide by factor of 100
 	a.s = FALSE, 
 	nu = setStoic(x, 'M2581', +1))
 
