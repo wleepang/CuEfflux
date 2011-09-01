@@ -165,10 +165,10 @@ rxn[['P0700 translation']] = list(
 	a.s = FALSE, 
 	nu = setStoic(x, 'P0700', +1))
 
-rxn[['P0702.Cu bind']] = list(
-	a = '0.01*P0702*Cu/V^2', 
-	a.s = FALSE, 
-	nu = setStoic(x, c('P0702', 'Cu', 'P0702.Cu'), c(-1, -1, +1)))
+# rxn[['P0702.Cu bind']] = list(
+# 	a = '0.01*P0702*Cu/V^2', 
+# 	a.s = FALSE, 
+# 	nu = setStoic(x, c('P0702', 'Cu', 'P0702.Cu'), c(-1, -1, +1)))
 
 rxn[['P0702.Cu by P1179 +1']] = list(
 	a = '0.01*P0702*P1179.Cu/V^2', 
