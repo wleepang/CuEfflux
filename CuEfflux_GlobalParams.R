@@ -1,4 +1,5 @@
 ## global parameters
+modelName = 'twochaps_nb'
 kGenomeCopy = 25
 isKO0702 = FALSE
 isKO2581 = FALSE

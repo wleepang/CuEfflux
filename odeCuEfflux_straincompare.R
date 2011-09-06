@@ -37,7 +37,7 @@ for (i in 1:dim(Strain)[1]) {
 }
 
 # plot the result
-pdf(file='odeCuEfflux_straincompare_twochap_nb.pdf', width=11, height=8.5, paper='USr')
+pdf(file=sprintf('odeCuEfflux_straincompare_%s.pdf', modelName), width=11, height=8.5, paper='USr')
 par(mfcol=c(3,7),mar=c(4,4,0.1,0.1),oma=c(0,0,0,0))
 for (n in names(trends)) {
 	print(n)
