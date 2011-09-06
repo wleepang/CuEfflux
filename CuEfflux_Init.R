@@ -31,13 +31,13 @@ x0 <- c(Cu							= 0,
 
 if (modelName == 'onechap') {
   x0 = c(x0,
-  			D0702           = kGenomeCopy*2*(!isKO),
+  			D0702           = kGenomeCopy*2*(!isKO0702),
 				D2581           = 0,
-  			OE0702          = kGenomeCopy*isOE,
+  			OE0702          = kGenomeCopy*isOE0702,
 				OE2581          = 0,
-  			P0702           = 700*(!isKO),
+  			P0702           = 700*(!isKO0702),
   			P2581           = 0)
-} else if ((modelName == 'twochap.nb') || modelName == 'twochap.lp') {
+} else if ((modelName == 'twochaps.nb') || modelName == 'twochaps.lp') {
   x0 = c(x0,
     		D0702           = kGenomeCopy*(!isKO0702),
 				D2581           = kGenomeCopy*(!isKO2581),
