@@ -4,7 +4,7 @@ source('CuEfflux_Func.R')
 
 # set global values
 source('CuEfflux_GlobalParams.R')
-isOE=T
+isOE=F
 # initialize set model parameters and initial state
 source('CuEfflux_Init.R')
 
@@ -16,7 +16,7 @@ nu = set.nu(rxn)
 a  = set.a(rxn)
 
 tic()
-out = ode(x0, seq(0,18000,by=10), dxdt, list(nu=nu, a=a), method='daspk')
+out = ode(x0, seq(0,18000,by=100), dxdt, list(nu=nu, a=a), method='daspk')
 toc()
 
 ## plot mRNA dynamics of default system

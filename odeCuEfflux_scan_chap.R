@@ -33,8 +33,8 @@ nu = set.nu(rxn)
 a  = set.a(rxn)
 
 # wt scan chap level
-Levels = 10^seq(0,5,length=50) # 1 - 100000 Chaperone molecules
-scan.result.chap.wt = model.scan('P0702', Levels, 'wt_scan_chap', t.final=18000)
+Levels = 10^seq(0,5,length=25) # 1 - 100000 Chaperone molecules
+scan.result.chap.wt = model.scan('P0702', Levels, 'wt_scan_chap', t.final=18000, t.step=100)
 
 ################################################################################
 # Plot scan results
