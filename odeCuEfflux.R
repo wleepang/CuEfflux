@@ -16,7 +16,7 @@ nu = set.nu(rxn)
 a  = set.a(rxn)
 
 tic()
-out = ode(x0, seq(0,18000,by=100), dxdt, list(nu=nu, a=a), method='daspk')
+out = ode(x0, seq(0,18000,by=100), dxdt, c(list(nu=nu, a=a), parms), method='daspk')
 toc()
 
 ## plot mRNA dynamics of default system
