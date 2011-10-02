@@ -108,7 +108,7 @@ model.scan = function(ScanVar, ScanLevels, file.prefix='scan', t.final=36000, t.
 		printf('%5d%15e', iter, Level)
 		
 		tic()
-		out = ode(x0, seq(0,t.final,by=t.step), dxdt, list(nu=nu, a=a), method='daspk')
+		out = ode(x0, seq(0,t.final,by=t.step), dxdt, c(list(nu=nu, a=a), parms), method='daspk')
 		t.done = toc(F)
 		
 		printf('%15.2f\n', t.done)
