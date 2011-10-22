@@ -35,7 +35,7 @@ if (modelName == 'onechap') {
 				D2581           = 0,
   			OE0702          = kGenomeCopy*isOE0702,
 				OE2581          = 0,
-  			P0702           = 700*(!isKO0702),
+  			P0702           = 0*(!isKO0702),
   			P2581           = 0)
 } else if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
   x0 = c(x0,
@@ -43,6 +43,6 @@ if (modelName == 'onechap') {
 				D2581           = kGenomeCopy*(!isKO2581),
   			OE0702          = kGenomeCopy*isOE0702,
 				OE2581          = kGenomeCopy*isOE2581,
-  			P0702           = 350*(!isKO0702),
-  			P2581           = 350*(!isKO2581))
+  			P0702           = 0*(!isKO0702),
+  			P2581           = 0*(!isKO2581))
 }

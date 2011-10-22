@@ -86,6 +86,7 @@ for (n in names(trends)) {
 
 par(mfcol=c(1,1), oma=c(1.5, 2, 1, 1))
 barplot(result[,'cu.ss'], names.arg=rownames(result), ylab='[Cu]')
+barplot(result[,'cu.ss']/result['wt','cu.ss'], names.arg=rownames(result), ylab='Relative [Cu]')
 barplot(result[,'P0700.ss'], names.arg=rownames(result), ylab='[P0700]', log='y')
 
 dev.off()
