@@ -17,43 +17,39 @@ source('CuEfflux_rxnDef.R')
 nu = set.nu(rxn)
 a  = set.a(rxn)
 
-scan.result.cu.wt = model.scan('Cu.out', Levels, 'wt_scan_CuOut', t.final=t.final)
+scan.result.cu.wt = model.scan('Cu.out', Levels, 'wt_scan_CuOut', t.final=t.final, t.step=100)
 
 # ko scan cu.out level
 source('CuEfflux_GlobalParams.R')
-isKO = TRUE
+isKO0702 = TRUE
 source('CuEfflux_Init.R')
 source('CuEfflux_rxnDef.R')
 nu = set.nu(rxn)
 a  = set.a(rxn)
 
-scan.result.cu.ko = model.scan('Cu.out', Levels, 'ko_scan_CuOut', t.final=t.final)
+scan.result.cu.ko = model.scan('Cu.out', Levels, 'ko_scan_CuOut', t.final=t.final, t.step=100)
 
 # oe scan cu.out level
 source('CuEfflux_GlobalParams.R')
-isOE = TRUE
+isOE0702 = TRUE
+parms[['k.OE0702.transcription']] = 0.646571
 source('CuEfflux_Init.R')
 source('CuEfflux_rxnDef.R')
 nu = set.nu(rxn)
 a  = set.a(rxn)
 
-scan.result.cu.oe = model.scan('Cu.out', Levels, 'oe_scan_CuOut', t.final=t.final)
+scan.result.cu.oe = model.scan('Cu.out', Levels, 'oe_scan_CuOut', t.final=t.final, t.step=100)
 
 # adjusted oe scan cu.out level
 source('CuEfflux_GlobalParams.R')
-isOE = TRUE
+isOE0702 = TRUE
 source('CuEfflux_Init.R')
 source('CuEfflux_rxnDef.R')
-
-rxn[['OE0702 transcription']] = list(
-	a = '0.646571*OE0702/100', # in order to get OE to be like expt. divide by factor of 100
-	a.s = FALSE, 
-	nu = setStoic(x, 'M0702', +1))
 
 nu = set.nu(rxn)
 a  = set.a(rxn)
 
-scan.result.cu.oe2 = model.scan('Cu.out', Levels, 'oe2_scan_CuOut', t.final=t.final)
+scan.result.cu.oe2 = model.scan('Cu.out', Levels, 'oe2_scan_CuOut', t.final=t.final, t.step=100)
 
 ################################################################################
 # Plot scan results
