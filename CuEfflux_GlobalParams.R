@@ -76,34 +76,5 @@ parms = c(
     k.Q.Cu.by.P2581.F2 = 1.0,            # twochap.xx
     k.Q.Cu.non.specific = 0.001
   )
-  
-if (modelName %in% c('onechap')) {
-	# disable all reactions involving 2581
-	parms[regexpr('2581', names(parms)) > 0] = 0
-}
- 
-if (modelName %in% c('twochaps.nb')) {
-	# weak interaction between P0702 and Q
-	parms['k.Q.Cu.by.P0702.F2'] = 0.1
-	
-	# weak interaction between P2581 and P1179
-	parms['k.P1179.Cu.by.P2581.F2'] = 0.01
-	
-	# weak interaction between P2581 and P0700
-	parms['k.P0700.Cu.by.P2581.F2'] = 0.1
-	
-	# disable interaction between P2581 and P0702
-	parms[regexpr('(.*P0702.*P2581)|(.*P2581.*P0702)', names(parms)) > 0] = 0
-}
- 
-if (modelName %in% c('twochaps.lp')) {
-	# disable direct Cu binding by P0702
-	parms['k.P0702.Cu.bind'] = 0
-	
-	# disable interactions between P0702 and P1179, Q
-	parms[regexpr('(.*P0702.*P1179)|(.*P1179.*P0702)|(.*P0702.*Q)|(.*Q.*P0702)', names(parms)) > 0] = 0
-	
-	# disable interactions between P2581 and P0700
-	parms[regexpr('(.*P0700.*P2581)|(.*P2581.*P0700)', names(parms)) > 0] = 0
-}
+
  
