@@ -24,6 +24,7 @@ for (i in 1:dim(Strain)[1]) {
 	isKO2581 = s$KO2581
 	isOE0702 = s$OE0702
 	isOE2581 = s$OE2581
+	modelName = 'twochaps.lp'
 	
 	source('CuEfflux_Init.R')
 	source('CuEfflux_rxnDef.R')
@@ -32,7 +33,7 @@ for (i in 1:dim(Strain)[1]) {
 	a  = set.a(rxn)
 	
 	tic()
-	trends[[as.character(s$strain)]] = ode(x0, seq(0,18000,by=100), dxdt, list(nu=nu, a=a), method='daspk')
+	trends[[as.character(s$strain)]] = ode(x0, seq(0,18000,by=100), dxdt, c(list(nu=nu, a=a), parms), method='daspk')
 	toc()
 }
 

@@ -17,6 +17,7 @@ x0 <- c(Cu							= 0,
 				P2581.Cu.P0700  = 0,
 				P2581.Cu.P1179  = 0,
 				P2581.Cu.Q      = 0,
+				P0702.P2581			= 0,
 				P0702.Cu.P2581  = 0,
 				P1179           = kGenomeCopy*6, # at least two regulators per controlled gene (excluding gfp)
 				P1179.Cu        = 0,
@@ -76,4 +77,12 @@ if (modelName %in% c('twochaps.lp')) {
 	
 	# disable interactions between P2581 and P0700
 	parms[regexpr('(.*P0700.*P2581)|(.*P2581.*P0700)', names(parms)) > 0] = 0
+	
+	# disable apo dimerization
+	parms[regexpr('apo', names(parms)) > 0] = 0
+	
+	# strengthen Cu mediated dimerization
+	parms['k.P0702.Cu.by.P2581.R1'] = parms['k.P0702.Cu.by.P2581.F1']
+	parms['k.P2581.Cu.by.P0702.R1'] = parms['k.P2581.Cu.by.P0702.R1']
+	
 }

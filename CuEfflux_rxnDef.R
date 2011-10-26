@@ -207,6 +207,14 @@ rxn[['P2581 translation']] = list(
 	a = 'k.P2581.translation*M2581', 
 	nu = setStoic(x, 'P2581', +1))
 
+rxn[['P0702.P2581 apo dimerization']] = list(
+	a = 'k.P0702.P2581.apo.dimerization*P0702*P2581/V^2',
+	nu = setStoic(x, c('P0702', 'P2581', 'P0702.P2581'), c(-1, -1, +1)))
+
+rxn[['P0702.P2581 apo dedimerization']] = list(
+	a = 'k.P0702.P2581.apo.dedimerization*P0702.P2581',
+	nu = setStoic(x, c('P0702.P2581', 'P0702', 'P2581'), c(-1, +1, +1)))
+	
 rxn[['P1179.Cu by P0702 F1']] = list(
 	a = 'k.P1179.Cu.by.P0702.F1*P1179*P0702.Cu/V^2', 
 	nu = setStoic(x, c('P1179', 'P0702.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
@@ -264,7 +272,7 @@ rxn[['Q.Cu by P2581 F1']] = list(
 	nu = setStoic(x, c('P2581.Cu', 'Q', 'P2581.Cu.Q'), c(-1, -1, +1)))
 
 rxn[['Q.Cu by P2581 R1']] = list(
-	a = 'k.Q.Cu.by.2581.R1*P2581.Cu.Q', 
+	a = 'k.Q.Cu.by.P2581.R1*P2581.Cu.Q', 
 	nu = setStoic(x, c('P2581.Cu.Q', 'P2581.Cu', 'Q'), c(-1, +1, +1)))
 
 rxn[['Q.Cu by P2581 F2']] = list(
