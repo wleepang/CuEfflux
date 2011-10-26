@@ -39,17 +39,13 @@ rxn[['D0702 P1179.Cu dissociation']] = list(
 	a = 'k.D0702.P1179.Cu.dissociation*P1179.Cu.D0702', 
 	nu = setStoic(x, c('P1179.Cu.D0702', 'P1179.Cu', 'D0702'), c(-1, +1, +1)))
 
-################################################################################
-if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
-  rxn[['D2581 P1179.Cu binding']] = list(
-  	a = 'k.D2581.P1179.Cu.binding*P1179.Cu*D2581/V^2', 
-  	nu = setStoic(x, c('P1179.Cu', 'D2581', 'P1179.Cu.D2581'), c(-1, -1, +1)))
-  
-  rxn[['D2581 P1179.Cu dissociation']] = list(
-  	a = 'k.D2581.P1179.Cu.dissociation*P1179.Cu.D2581', 
-  	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581'), c(-1, +1, +1)))
-}
-################################################################################
+rxn[['D2581 P1179.Cu binding']] = list(
+	a = 'k.D2581.P1179.Cu.binding*P1179.Cu*D2581/V^2', 
+	nu = setStoic(x, c('P1179.Cu', 'D2581', 'P1179.Cu.D2581'), c(-1, -1, +1)))
+
+rxn[['D2581 P1179.Cu dissociation']] = list(
+	a = 'k.D2581.P1179.Cu.dissociation*P1179.Cu.D2581', 
+	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581'), c(-1, +1, +1)))
 
 rxn[['Dgfp P1179.Cu binding']] = list(
 	a = 'k.Dgfp.P1179.Cu.binding*P1179.Cu*Dgfp/V^2', 
@@ -75,17 +71,13 @@ rxn[['M0702 transcription']] = list(
 	a = 'k.M0702.transcription*P1179.Cu.D0702', 
 	nu = setStoic(x, c('P1179.Cu.D0702', 'P1179.Cu', 'D0702', 'M0702'), c(-1, +1, +1, +1)))
 
-################################################################################
-if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
-  rxn[['M2581 degradation']] = list(
-  	a = 'k.M2581.degradation*M2581', 
-  	nu = setStoic(x, 'M2581', -1))
-  
-  rxn[['M2581 transcription']] = list(
-  	a = 'k.M2581.transcription*P1179.Cu.D2581', 
-  	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581', 'M2581'), c(-1, +1, +1, +1)))
-}
-################################################################################
+rxn[['M2581 degradation']] = list(
+	a = 'k.M2581.degradation*M2581', 
+	nu = setStoic(x, 'M2581', -1))
+
+rxn[['M2581 transcription']] = list(
+	a = 'k.M2581.transcription*P1179.Cu.D2581', 
+	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581', 'M2581'), c(-1, +1, +1, +1)))
 
 rxn[['Mgfp degradation']] = list(
 	a = 'k.Mgfp.degradation*Mgfp', 
@@ -99,41 +91,33 @@ rxn[['OE0702 transcription']] = list(
 	a = 'k.OE0702.transcription*OE0702', 
 	nu = setStoic(x, 'M0702', +1))
 
-################################################################################
-if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
-  rxn[['OE2581 transcription']] = list(
-  	a = 'k.OE2581.transcription*OE2581', 
-  	nu = setStoic(x, 'M2581', +1))
-}
-################################################################################
+rxn[['OE2581 transcription']] = list(
+	a = 'k.OE2581.transcription*OE2581', 
+	nu = setStoic(x, 'M2581', +1))
 
-rxn[['P0700.Cu by 0702 F1']] = list(
-	a = 'k.P0700.Cu.by.0702.F1*P0702.Cu*P0700/V^2', 
+rxn[['P0700.Cu by P0702 F1']] = list(
+	a = 'k.P0700.Cu.by.P0702.F1*P0702.Cu*P0700/V^2', 
 	nu = setStoic(x, c('P0702.Cu', 'P0700', 'P0702.Cu.P0700'), c(-1, -1, +1)))
 
-rxn[['P0700.Cu by 0702 R1']] = list(
-	a = 'k.P0700.Cu.by.0702.R1*P0702.Cu.P0700', 
+rxn[['P0700.Cu by P0702 R1']] = list(
+	a = 'k.P0700.Cu.by.P0702.R1*P0702.Cu.P0700', 
 	nu = setStoic(x, c('P0702.Cu.P0700', 'P0702.Cu', 'P0700'), c(-1, +1, +1)))
 
-rxn[['P0700.Cu by 0702 F2']] = list(
-	a = 'k.P0700.Cu.by.0702.F2*P0702.Cu.P0700', 
+rxn[['P0700.Cu by P0702 F2']] = list(
+	a = 'k.P0700.Cu.by.P0702.F2*P0702.Cu.P0700', 
 	nu = setStoic(x, c('P0702.Cu.P0700', 'P0702', 'P0700.Cu'), c(-1, +1, +1)))
 
-################################################################################
-if (modelName == 'twochaps.nb') {
-  rxn[['P0700.Cu by 2581 F1']] = list(
-  	a = 'k.P0700.Cu.by.2581.F1*P2581.Cu*P0700/V^2', 
-  	nu = setStoic(x, c('P2581.Cu', 'P0700', 'P2581.Cu.P0700'), c(-1, -1, +1)))
-  
-  rxn[['P0700.Cu by 2581 R1']] = list(
-  	a = 'k.P0700.Cu.by.2581.R1*P2581.Cu.P0700', 
-  	nu = setStoic(x, c('P2581.Cu.P0700', 'P2581.Cu', 'P0700'), c(-1, +1, +1)))
-  
-  rxn[['P0700.Cu by 2581 F2']] = list(
-  	a = 'k.P0700.Cu.by.2581.F2*P2581.Cu.P0700', 
-  	nu = setStoic(x, c('P2581.Cu.P0700', 'P2581', 'P0700.Cu'), c(-1, +1, +1)))
-}
-################################################################################
+rxn[['P0700.Cu by P2581 F1']] = list(
+	a = 'k.P0700.Cu.by.P2581.F1*P2581.Cu*P0700/V^2', 
+	nu = setStoic(x, c('P2581.Cu', 'P0700', 'P2581.Cu.P0700'), c(-1, -1, +1)))
+
+rxn[['P0700.Cu by P2581 R1']] = list(
+	a = 'k.P0700.Cu.by.P2581.R1*P2581.Cu.P0700', 
+	nu = setStoic(x, c('P2581.Cu.P0700', 'P2581.Cu', 'P0700'), c(-1, +1, +1)))
+
+rxn[['P0700.Cu by P2581 F2']] = list(
+	a = 'k.P0700.Cu.by.P2581.F2*P2581.Cu.P0700', 
+	nu = setStoic(x, c('P2581.Cu.P0700', 'P2581', 'P0700.Cu'), c(-1, +1, +1)))
 
 rxn[['P0700.Cu dissociation']] = list(
 	a = 'k.P0700.Cu.dissociation*P0700.Cu', 
@@ -143,135 +127,110 @@ rxn[['P0700.Cu non-specific']] = list(
 	a = 'k.P0700.Cu.non.specific*P0700*Cu/V^2', 
 	nu = setStoic(x, c('P0700', 'Cu', 'P0700.Cu'), c(-1, -1, +1)))
 
-# rxn[['P0700 degradation']] = list(
-# 	a = 'mu*P0700', 
-# 	nu = setStoic(x, 'P0700', -1))
+rxn[['P0700 degradation']] = list(
+	a = 'k.P0700.degradation*P0700', 
+	nu = setStoic(x, 'P0700', -1))
 
 rxn[['P0700 translation']] = list(
 	a = 'k.P0700.translation*M0700', 
 	nu = setStoic(x, 'P0700', +1))
 
-if (modelName %in% c('onechap', 'twochaps.nb')) {
-  rxn[['P0702.Cu bind']] = list(
-  	a = 'k.P0702.Cu.bind*P0702*Cu/V^2', 
-  	nu = setStoic(x, c('P0702', 'Cu', 'P0702.Cu'), c(-1, -1, +1)))
-  
-  rxn[['P0702.Cu by P1179 F1']] = list(
-  	a = 'k.P0702.Cu.by.P1179.F1*P0702*P1179.Cu/V^2', 
-  	nu = setStoic(x, c('P0702', 'P1179.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
-  
-  rxn[['P0702.Cu by Q F1']] = list(
-  	a = 'k.P0702.Cu.by.Q.F1*P0702*Q.Cu/V^2', 
-  	nu = setStoic(x, c('P0702', 'Q.Cu', 'P0702.Cu.Q'), c(-1, -1, +1)))
-  
-}
+rxn[['P0702.Cu bind']] = list(
+	a = 'k.P0702.Cu.bind*P0702*Cu/V^2', 
+	nu = setStoic(x, c('P0702', 'Cu', 'P0702.Cu'), c(-1, -1, +1)))
 
-if (modelName == 'twochaps.lp') {
-  rxn[['P0702.Cu by P2581 F1']] = list(
-    a = 'k.P0702.Cu.by.P2581.F1*P0702*P2581.Cu/V^2', 
-  	nu = setStoic(x, c('P0702', 'P2581.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
-   
-}
+rxn[['P0702.Cu by P1179 F1']] = list(
+	a = 'k.P0702.Cu.by.P1179.F1*P0702*P1179.Cu/V^2', 
+	nu = setStoic(x, c('P0702', 'P1179.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
+
+rxn[['P0702.Cu by P2581 F1']] = list(
+  a = 'k.P0702.Cu.by.P2581.F1*P0702*P2581.Cu/V^2', 
+	nu = setStoic(x, c('P0702', 'P2581.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
+
+rxn[['P0702.Cu by P2581 R1']] = list(
+	a = 'k.P0702.Cu.by.P2581.R1*P0702.Cu.P2581',
+	nu = setStoic(x, c('P0702.Cu.P2581', 'P0702', 'P2581.Cu'), c(-1, +1, +1)))
+
+rxn[['P0702.Cu by Q F1']] = list(
+	a = 'k.P0702.Cu.by.Q.F1*P0702*Q.Cu/V^2', 
+	nu = setStoic(x, c('P0702', 'Q.Cu', 'P0702.Cu.Q'), c(-1, -1, +1)))
 
 rxn[['P0702.Cu debind']] = list(
 	a = 'k.P0702.Cu.debind*P0702.Cu', 
 	nu = setStoic(x, c('P0702.Cu', 'P0702', 'Cu'), c(-1, +1, +1)))
 
-# rxn[['P0702.Cu degradation']] = list(
-# 	a = '0.00015*P0702.Cu', 
-# 	nu = setStoic(x, c('P0702.Cu', 'Cu'), c(-1, +1)))
+rxn[['P0702.Cu degradation']] = list(
+	a = 'k.P0702.Cu.degradation*P0702.Cu', 
+	nu = setStoic(x, c('P0702.Cu', 'Cu'), c(-1, +1)))
 
-# rxn[['P0702 degradation']] = list(
-# 	a = 'mu*P0702', 
-# 	nu = setStoic(x, 'P0702', -1))
+rxn[['P0702 degradation']] = list(
+	a = 'k.P0702.degradation*P0702', 
+	nu = setStoic(x, 'P0702', -1))
 
 rxn[['P0702 translation']] = list(
 	a = 'k.P0702.translation*M0702', 
 	nu = setStoic(x, 'P0702', +1))
 
-################################################################################
-if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
-  rxn[['P2581.Cu bind']] = list(
-  	a = 'k.P2581.Cu.bind*P2581*Cu/V^2', 
-  	nu = setStoic(x, c('P2581', 'Cu', 'P2581.Cu'), c(-1, -1, +1)))
-  
-  rxn[['P2581.Cu by P1179 F1']] = list(
-  	a = 'k.P2581.Cu.by.P1179.F1*P2581*P1179.Cu/V^2', 
-  	nu = setStoic(x, c('P2581', 'P1179.Cu', 'P2581.Cu.P1179'), c(-1, -1, +1)))
-  
-  rxn[['P2581.Cu by P0702 F1']] = list(
-  	a = 'k.P2581.Cu.by.P0702.F1*P2581*P0702.Cu/V^2', 
-  	nu = setStoic(x, c('P2581', 'P0702.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
-  
-  rxn[['P2581.Cu by Q F1']] = list(
-  	a = 'k.P2581.Cu.by.Q.F1*P2581*Q.Cu/V^2', 
-  	nu = setStoic(x, c('P2581', 'Q.Cu', 'P2581.Cu.Q'), c(-1, -1, +1)))
-  
-  rxn[['P2581.Cu debind']] = list(
-  	a = 'k.P2581.Cu.debind*P2581.Cu', 
-  	nu = setStoic(x, c('P2581.Cu', 'P2581', 'Cu'), c(-1, +1, +1)))
-  
-#   rxn[['P2581.Cu degradation']] = list(
-#   	a = '0.00015*P2581.Cu', 
-#   	nu = setStoic(x, c('P2581.Cu', 'Cu'), c(-1, +1)))
-  
-#   rxn[['P2581 degradation']] = list(
-#   	a = 'mu*P2581', 
-#   	nu = setStoic(x, 'P2581', -1))
-  
-  rxn[['P2581 translation']] = list(
-  	a = 'k.P2581.translation*M2581', 
-  	nu = setStoic(x, 'P2581', +1))
-  
-  rxn[['P0702.Cu by P2581 R1']] = list(
-  	a = 'k.P0702.Cu.by.P2581.R1*P0702.Cu.P2581',
-  	nu = setStoic(x, c('P0702.Cu.P2581', 'P0702', 'P2581.Cu'), c(-1, +1, +1)))
-  
-  rxn[['P2581.Cu by P0702 R1']] = list(
-  	a = 'k.P2581.Cu.by.P0702.R1*P0702.Cu.P2581',
-  	nu = setStoic(x, c('P0702.Cu.P2581', 'P0702.Cu', 'P2581'), c(-1, +1, +1)))
-}
-################################################################################
+rxn[['P2581.Cu bind']] = list(
+	a = 'k.P2581.Cu.bind*P2581*Cu/V^2', 
+	nu = setStoic(x, c('P2581', 'Cu', 'P2581.Cu'), c(-1, -1, +1)))
 
-if (modelName %in% c('onechap', 'twochaps.nb')) {
-  rxn[['P1179.Cu by 0702 F1']] = list(
-  	a = 'k.P1179.Cu.by.0702.F1*P1179*P0702.Cu/V^2', 
-  	nu = setStoic(x, c('P1179', 'P0702.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
-  
-  rxn[['P1179.Cu by 0702 R1']] = list(
-  	a = 'k.P1179.Cu.by.0702.R1*P0702.Cu.P1179', 
-  	nu = setStoic(x, c('P0702.Cu.P1179', 'P0702.Cu', 'P1179'), c(-1, +1, +1)))
-  
-  rxn[['P1179.Cu by 0702 F2']] = list(
-  	a = 'k.P1179.Cu.by.0702.F2*P0702.Cu.P1179', 
-  	nu = setStoic(x, c('P0702.Cu.P1179', 'P1179.Cu', 'P0702'), c(-1, +1, +1)))
-  
-}
-################################################################################
-if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
-  rxn[['P1179.Cu by 2581 F1']] = list(
-    a = 'k.P1179.Cu.by.2581.F1*P1179*P2581.Cu/V^2', 
-  	nu = setStoic(x, c('P1179', 'P2581.Cu', 'P2581.Cu.P1179'), c(-1, -1, +1)))
-  
-  rxn[['P1179.Cu by 2581 R1']] = list(
-  	a = 'k.P1179.Cu.by.2581.R1*P2581.Cu.P1179', 
-  	nu = setStoic(x, c('P2581.Cu.P1179', 'P2581.Cu', 'P1179'), c(-1, +1, +1)))
-}
+rxn[['P2581.Cu by P1179 F1']] = list(
+	a = 'k.P2581.Cu.by.P1179.F1*P2581*P1179.Cu/V^2', 
+	nu = setStoic(x, c('P2581', 'P1179.Cu', 'P2581.Cu.P1179'), c(-1, -1, +1)))
 
-if (modelName == 'twochaps.nb') {
-  rxn[['P1179.Cu by 2581 F2']] = list(
-    a = 'k.P1179.Cu.by.2581.F2.nb*P2581.Cu.P1179', 
-  	nu = setStoic(x, c('P2581.Cu.P1179', 'P1179.Cu', 'P2581'), c(-1, +1, +1)))
+rxn[['P2581.Cu by P0702 F1']] = list(
+	a = 'k.P2581.Cu.by.P0702.F1*P2581*P0702.Cu/V^2', 
+	nu = setStoic(x, c('P2581', 'P0702.Cu', 'P0702.Cu.P2581'), c(-1, -1, +1)))
+
+rxn[['P2581.Cu by P0702 R1']] = list(
+	a = 'k.P2581.Cu.by.P0702.R1*P0702.Cu.P2581',
+	nu = setStoic(x, c('P0702.Cu.P2581', 'P0702.Cu', 'P2581'), c(-1, +1, +1)))
+	
+rxn[['P2581.Cu by Q F1']] = list(
+	a = 'k.P2581.Cu.by.Q.F1*P2581*Q.Cu/V^2', 
+	nu = setStoic(x, c('P2581', 'Q.Cu', 'P2581.Cu.Q'), c(-1, -1, +1)))
+
+rxn[['P2581.Cu debind']] = list(
+	a = 'k.P2581.Cu.debind*P2581.Cu', 
+	nu = setStoic(x, c('P2581.Cu', 'P2581', 'Cu'), c(-1, +1, +1)))
   
-} else if (modelName == 'twochaps.lp') {
-  rxn[['P1179.Cu by 2581 F2']] = list(
-    a = 'k.P1179.Cu.by.2581.F2.lp*P2581.Cu.P1179',
-  	nu = setStoic(x, c('P2581.Cu.P1179', 'P1179.Cu', 'P2581'), c(-1, +1, +1)))
-    
-}
+rxn[['P2581.Cu degradation']] = list(
+	a = 'k.P2581.Cu.degradation*P2581.Cu', 
+	nu = setStoic(x, c('P2581.Cu', 'Cu'), c(-1, +1)))
 
-################################################################################
+rxn[['P2581 degradation']] = list(
+	a = 'k.P2581.degradation*P2581', 
+	nu = setStoic(x, 'P2581', -1))
+  
+rxn[['P2581 translation']] = list(
+	a = 'k.P2581.translation*M2581', 
+	nu = setStoic(x, 'P2581', +1))
 
+rxn[['P1179.Cu by P0702 F1']] = list(
+	a = 'k.P1179.Cu.by.P0702.F1*P1179*P0702.Cu/V^2', 
+	nu = setStoic(x, c('P1179', 'P0702.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
+
+rxn[['P1179.Cu by P0702 R1']] = list(
+	a = 'k.P1179.Cu.by.P0702.R1*P0702.Cu.P1179', 
+	nu = setStoic(x, c('P0702.Cu.P1179', 'P0702.Cu', 'P1179'), c(-1, +1, +1)))
+
+rxn[['P1179.Cu by P0702 F2']] = list(
+	a = 'k.P1179.Cu.by.P0702.F2*P0702.Cu.P1179', 
+	nu = setStoic(x, c('P0702.Cu.P1179', 'P1179.Cu', 'P0702'), c(-1, +1, +1)))
+
+rxn[['P1179.Cu by P2581 F1']] = list(
+  a = 'k.P1179.Cu.by.P2581.F1*P1179*P2581.Cu/V^2', 
+	nu = setStoic(x, c('P1179', 'P2581.Cu', 'P2581.Cu.P1179'), c(-1, -1, +1)))
+
+rxn[['P1179.Cu by P2581 R1']] = list(
+	a = 'k.P1179.Cu.by.P2581.R1*P2581.Cu.P1179', 
+	nu = setStoic(x, c('P2581.Cu.P1179', 'P2581.Cu', 'P1179'), c(-1, +1, +1)))
+
+rxn[['P1179.Cu by P2581 F2']] = list(
+  a = 'k.P1179.Cu.by.P2581.F2*P2581.Cu.P1179', 
+	nu = setStoic(x, c('P2581.Cu.P1179', 'P1179.Cu', 'P2581'), c(-1, +1, +1)))
+  
 rxn[['P1179.Cu dissociation']] = list(
 	a = 'k.P1179.Cu.dissociation*P1179.Cu', 
 	nu = setStoic(x, c('P1179.Cu', 'P1179', 'Cu'), c(-1, +1, +1)))
@@ -280,56 +239,41 @@ rxn[['P1179.Cu non-specific']] = list(
 	a = 'k.P1179.Cu.non.specific*P1179*Cu/V^2', 
 	nu = setStoic(x, c('P1179', 'Cu', 'P1179.Cu'), c(-1, -1, +1)))
 
-# rxn[['Pgfp degradation']] = list(
-# 	a = 'mu*Pgfp', 
-# 	nu = setStoic(x, 'Pgfp', -1))
+rxn[['Pgfp degradation']] = list(
+	a = 'k.Pgfp.degradation*Pgfp', 
+	nu = setStoic(x, 'Pgfp', -1))
 
 rxn[['Pgfp translation']] = list(
 	a = 'k.Pgfp.translation*Mgfp', 
 	nu = setStoic(x, 'Pgfp', +1))
 
-################################################################################
-if (modelName %in% c('onechap', 'twochaps.nb')) {
-  rxn[['Q.Cu by 0702 F1']] = list(
-    a = 'k.Q.Cu.by.0702.F1*P0702.Cu*Q/V^2', 
-  	nu = setStoic(x, c('P0702.Cu', 'Q', 'P0702.Cu.Q'), c(-1, -1, +1)))
-  
-  rxn[['Q.Cu by 0702 R1']] = list(
-  	a = 'k.Q.Cu.by.0702.R1*P0702.Cu.Q', 
-  	nu = setStoic(x, c('P0702.Cu.Q', 'P0702.Cu', 'Q'), c(-1, +1, +1)))
-  
-  rxn[['Q.Cu by 0702 F2']] = list(
-    a = 'k.Q.Cu.by.0702.F2*P0702.Cu.Q',
-  	nu = setStoic(x, c('P0702.Cu.Q', 'P0702', 'Q.Cu'), c(-1, +1, +1)))
-  
-} else if (modelName == 'twochaps.nb') {
-  rxn[['Q.Cu by 0702 F2']] = list(
-  	a = 'k.Q.Cu.by.0702.F2.nb*P0702.Cu.Q', 
-  	nu = setStoic(x, c('P0702.Cu.Q', 'P0702', 'Q.Cu'), c(-1, +1, +1)))
+rxn[['Q.Cu by P0702 F1']] = list(
+  a = 'k.Q.Cu.by.P0702.F1*P0702.Cu*Q/V^2', 
+	nu = setStoic(x, c('P0702.Cu', 'Q', 'P0702.Cu.Q'), c(-1, -1, +1)))
 
-} else if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {  
-  rxn[['Q.Cu by 2581 F1']] = list(
-  	a = 'k.Q.Cu.by.2581.F1*P2581.Cu*Q/V^2', 
-  	nu = setStoic(x, c('P2581.Cu', 'Q', 'P2581.Cu.Q'), c(-1, -1, +1)))
-  
-  rxn[['Q.Cu by 2581 R1']] = list(
-  	a = 'k.Q.Cu.by.2581.R1*P2581.Cu.Q', 
-  	nu = setStoic(x, c('P2581.Cu.Q', 'P2581.Cu', 'Q'), c(-1, +1, +1)))
-  
-  rxn[['Q.Cu by 2581 F2']] = list(
-  	a = 'k.Q.Cu.by.2581.F2*P2581.Cu.Q', 
-  	nu = setStoic(x, c('P2581.Cu.Q', 'P2581', 'Q.Cu'), c(-1, +1, +1)))
-}
-################################################################################
+rxn[['Q.Cu by P0702 R1']] = list(
+	a = 'k.Q.Cu.by.P0702.R1*P0702.Cu.Q', 
+	nu = setStoic(x, c('P0702.Cu.Q', 'P0702.Cu', 'Q'), c(-1, +1, +1)))
 
+rxn[['Q.Cu by P0702 F2']] = list(
+  a = 'k.Q.Cu.by.P0702.F2*P0702.Cu.Q',
+	nu = setStoic(x, c('P0702.Cu.Q', 'P0702', 'Q.Cu'), c(-1, +1, +1)))
+  
+rxn[['Q.Cu by P2581 F1']] = list(
+	a = 'k.Q.Cu.by.P2581.F1*P2581.Cu*Q/V^2', 
+	nu = setStoic(x, c('P2581.Cu', 'Q', 'P2581.Cu.Q'), c(-1, -1, +1)))
+
+rxn[['Q.Cu by P2581 R1']] = list(
+	a = 'k.Q.Cu.by.2581.R1*P2581.Cu.Q', 
+	nu = setStoic(x, c('P2581.Cu.Q', 'P2581.Cu', 'Q'), c(-1, +1, +1)))
+
+rxn[['Q.Cu by P2581 F2']] = list(
+	a = 'k.Q.Cu.by.P2581.F2*P2581.Cu.Q', 
+	nu = setStoic(x, c('P2581.Cu.Q', 'P2581', 'Q.Cu'), c(-1, +1, +1)))
 
 rxn[['Q.Cu non-specific']] = list(
 	a = 'k.Q.Cu.non.specific*Q*Cu/V^2', 
 	nu = setStoic(x, c('Q', 'Cu', 'Q.Cu'), c(-1, -1, +1)))
-
-# rxn[['Q.Cu turnover']] = list(
-# 	a = 'mu*Q.Cu', 
-# 	nu = setStoic(x, c('Q.Cu', 'Q', 'Cu'), c(-1, +1, +1)))
 
 rxn[['V growth']] = list(
 	a = 'mu*V',
