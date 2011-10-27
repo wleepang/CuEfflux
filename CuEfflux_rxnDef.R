@@ -47,31 +47,6 @@ rxn[['D2581 P1179.Cu dissociation']] = list(
 	a = 'k.D2581.P1179.Cu.dissociation*P1179.Cu.D2581', 
 	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581'), c(-1, +1, +1)))
 
-###
-# rxn[['D0700 P1179.P2581.Cu.Y binding']] = list(
-# 	a = 'k.D070X.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D0700', 'P1179.P2581.Cu.Y.D0700'), c(-1, -1, +1)))
-# 
-# rxn[['D0700 P1179.P2581.Cu.Y dissociation']] = list(
-# 	a = 'k.D0700.P1179.Cu.dissociation*P1179.P2581.Cu.Y.D2581', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0700', 'P1179.P2581.Cu.Y', 'D0700'), c(-1, +1, +1)))
-# 
-# rxn[['D0702 P1179.P2581.Cu.Y binding']] = list(
-# 	a = 'k.D070X.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D0702', 'P1179.P2581.Cu.Y.D0702'), c(-1, -1, +1)))
-# 
-# rxn[['D0702 P1179.P2581.Cu.Y dissociation']] = list(
-# 	a = 'k.D0702.P1179.Cu.dissociation*P1179.P2581.Cu.Y.D2581', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0702', 'P1179.P2581.Cu.Y', 'D0702'), c(-1, +1, +1)))
-#
-# rxn[['D2581 P1179.P2581.Cu.Y binding']] = list(
-# 	a = 'k.D2581.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D2581', 'P1179.P2581.Cu.Y.D2581'), c(-1, -1, +1)))
-# 
-# rxn[['D2581 P1179.P2581.Cu.Y dissociation']] = list(
-# 	a = 'k.D2581.P1179.Cu.dissociation*P1179.P2581.Cu.Y.D2581', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D2581', 'P1179.P2581.Cu.Y', 'D2581'), c(-1, +1, +1)))
-
 rxn[['Dgfp P1179.Cu binding']] = list(
 	a = 'k.Dgfp.P1179.Cu.binding*P1179.Cu*Dgfp/V^2', 
 	nu = setStoic(x, c('P1179.Cu', 'Dgfp', 'P1179.Cu.Dgfp'), c(-1, -1, +1)))
@@ -103,18 +78,6 @@ rxn[['M2581 degradation']] = list(
 rxn[['M2581 transcription']] = list(
 	a = 'k.M2581.transcription*P1179.Cu.D2581', 
 	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581', 'M2581'), c(-1, +1, +1, +1)))
-
-# rxn[['M0700 transcription 2']] = list(
-# 	a = 'k.M0700.transcription*P1179.P2581.Cu.Y.D0700', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0700', 'P1179.P2581.Cu.Y', 'D0700', 'M0700'), c(-1, +1, +1, +1)))
-# 
-# rxn[['M0702 transcription 2']] = list(
-# 	a = 'k.M0702.transcription*P1179.P2581.Cu.Y.D0702', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0702', 'P1179.P2581.Cu.Y', 'D0702', 'M0702'), c(-1, +1, +1, +1)))
-# 
-# rxn[['M2581 transcription 2']] = list(
-# 	a = 'k.M2581.transcription*P1179.P2581.Cu.Y.D2581', 
-# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D2581', 'P1179.P2581.Cu.Y', 'D2581', 'M2581'), c(-1, +1, +1, +1)))
 
 rxn[['Mgfp degradation']] = list(
 	a = 'k.Mgfp.degradation*Mgfp', 
@@ -345,27 +308,6 @@ rxn[['P0700.Cu by X F2']] = list(
 	a = 'k.P0700.Cu.by.X.F2*P0700.Cu.X',
 	nu = setStoic(x, c('P0700.Cu.X', 'P0700.Cu', 'X'), c(-1, +1, +1)))
 ################################################################################
-################################################################################
-rxn[['P2581.Cu.Y F1']] = list(
-	a = 'k.P2581.Cu.Y.F1*P2581.Cu*Y/V^2',
-	nu = setStoic(x, c('P2581.Cu', 'Y', 'P2581.Cu.Y'), c(-1, -1, +1)))
-
-rxn[['P2581.Cu.Y R1']] = list(
-	a = 'k.P2581.Cu.Y.R1*P2581.Cu.Y',
-	nu = setStoic(x, c('P2581.Cu.Y', 'Y', 'P2581.Cu'), c(-1, +1, +1)))
-
-rxn[['P1179.Cu by P2581.Cu.Y F1']] = list(
-	a = 'k.P1179.Cu.by.P2581.Cu.Y.F1*P1179*P2581.Cu.Y/V^2',
-	nu = setStoic(x, c('P1179', 'P2581.Cu.Y', 'P1179.P2581.Cu.Y'), c(-1, -1, +1)))
-
-rxn[['P1179.Cu by P2581.Cu.Y R1']] = list(
-	a = 'k.P1179.Cu.by.P2581.Cu.Y.R1*P1179.P2581.Cu.Y',
-	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'P1179', 'P2581.Cu.Y'), c(-1, +1, +1)))
-
-rxn[['P1179.Cu by P2581.Cu.Y F2']] = list(
-	a = 'k.P1179.Cu.by.P2581.Cu.Y.F2*P1179.P2581.Cu.Y',
-	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'P1179.Cu', 'P2581', 'Y'), c(-1, +1, +1, +1)))
-################################################################################
 	
 rxn[['V growth']] = list(
 	a = 'mu*V',
@@ -401,8 +343,8 @@ rxn[['Dgfp growth']] = list(
 
 rxn[['OE0702 growth']] = list(
   a = paste('mu*(', paste(.T('OE0702'), collapse='+'), ')', sep='', collapse=''),
-	nu = setStoic(x, 'D0702', +1))
+	nu = setStoic(x, 'OE0702', +1))
 
 rxn[['OE2581 growth']] = list(
 	a = paste('mu*(', paste(.T('OE2581'), collapse='+'), ')', sep='', collapse=''),
-	nu = setStoic(x, 'D2581', +1))
+	nu = setStoic(x, 'OE2581', +1))

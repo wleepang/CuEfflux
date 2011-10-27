@@ -38,7 +38,8 @@ for (i in 1:dim(Strain)[1]) {
 }
 
 # plot the result
-pdf(file=sprintf('odeCuEfflux_straincompare_%s.pdf', modelName), width=11, height=8.5, paper='USr')
+ts = format(Sys.time(), '%Y%m%d-%H%M%S')
+pdf(file=sprintf('odeCuEfflux_straincompare_%s_%s.pdf', modelName, ts), width=11, height=8.5, paper='USr')
 par(mfcol=c(3,7),mar=c(4,4,0.1,0.1),oma=c(0,0,0,0))
 for (n in names(trends)) {
 	print(n)
@@ -89,3 +90,12 @@ barplot(result[,'cu.ss'], names.arg=rownames(result), ylab='[Cu]')
 barplot(result[,'P0700.ss'], names.arg=rownames(result), ylab='[P0700]', log='y')
 
 dev.off()
+
+# produce results tables for later plotting
+for (n in names(trends)) {
+	write.table(trends[[n]], 
+							file=sprintf('odeCuEfflux_straincompare_%s_%s_%s.tsv', modelName, n, ts),
+							sep='\t',
+							quote=F,
+							row.names=F)
+}
