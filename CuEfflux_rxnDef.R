@@ -47,8 +47,9 @@ rxn[['D2581 P1179.Cu dissociation']] = list(
 	a = 'k.D2581.P1179.Cu.dissociation*P1179.Cu.D2581', 
 	nu = setStoic(x, c('P1179.Cu.D2581', 'P1179.Cu', 'D2581'), c(-1, +1, +1)))
 
+###
 # rxn[['D0700 P1179.P2581.Cu.Y binding']] = list(
-# 	a = 'k.D0700.P1179.Cu.binding*P1179.P2581.Cu.Y*D2581/V^2', 
+# 	a = 'k.D070X.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
 # 	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D0700', 'P1179.P2581.Cu.Y.D0700'), c(-1, -1, +1)))
 # 
 # rxn[['D0700 P1179.P2581.Cu.Y dissociation']] = list(
@@ -56,20 +57,20 @@ rxn[['D2581 P1179.Cu dissociation']] = list(
 # 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0700', 'P1179.P2581.Cu.Y', 'D0700'), c(-1, +1, +1)))
 # 
 # rxn[['D0702 P1179.P2581.Cu.Y binding']] = list(
-# 	a = 'k.D0702.P1179.Cu.binding*P1179.P2581.Cu.Y*D2581/V^2', 
+# 	a = 'k.D070X.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
 # 	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D0702', 'P1179.P2581.Cu.Y.D0702'), c(-1, -1, +1)))
 # 
 # rxn[['D0702 P1179.P2581.Cu.Y dissociation']] = list(
 # 	a = 'k.D0702.P1179.Cu.dissociation*P1179.P2581.Cu.Y.D2581', 
 # 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0702', 'P1179.P2581.Cu.Y', 'D0702'), c(-1, +1, +1)))
-
-rxn[['D2581 P1179.P2581.Cu.Y binding']] = list(
-	a = 'k.D2581.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
-	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D2581', 'P1179.P2581.Cu.Y.D2581'), c(-1, -1, +1)))
-
-rxn[['D2581 P1179.P2581.Cu.Y dissociation']] = list(
-	a = 'k.D2581.P1179.Cu.dissociation*P1179.P2581.Cu.Y.D2581', 
-	nu = setStoic(x, c('P1179.P2581.Cu.Y.D2581', 'P1179.P2581.Cu.Y', 'D2581'), c(-1, +1, +1)))
+#
+# rxn[['D2581 P1179.P2581.Cu.Y binding']] = list(
+# 	a = 'k.D2581.P1179.P2581.Cu.Y.binding*P1179.P2581.Cu.Y*D2581/V^2', 
+# 	nu = setStoic(x, c('P1179.P2581.Cu.Y', 'D2581', 'P1179.P2581.Cu.Y.D2581'), c(-1, -1, +1)))
+# 
+# rxn[['D2581 P1179.P2581.Cu.Y dissociation']] = list(
+# 	a = 'k.D2581.P1179.Cu.dissociation*P1179.P2581.Cu.Y.D2581', 
+# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D2581', 'P1179.P2581.Cu.Y', 'D2581'), c(-1, +1, +1)))
 
 rxn[['Dgfp P1179.Cu binding']] = list(
 	a = 'k.Dgfp.P1179.Cu.binding*P1179.Cu*Dgfp/V^2', 
@@ -110,10 +111,10 @@ rxn[['M2581 transcription']] = list(
 # rxn[['M0702 transcription 2']] = list(
 # 	a = 'k.M0702.transcription*P1179.P2581.Cu.Y.D0702', 
 # 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D0702', 'P1179.P2581.Cu.Y', 'D0702', 'M0702'), c(-1, +1, +1, +1)))
-
-rxn[['M2581 transcription 2']] = list(
-	a = 'k.M2581.transcription*P1179.P2581.Cu.Y.D2581', 
-	nu = setStoic(x, c('P1179.P2581.Cu.Y.D2581', 'P1179.P2581.Cu.Y', 'D2581', 'M2581'), c(-1, +1, +1, +1)))
+# 
+# rxn[['M2581 transcription 2']] = list(
+# 	a = 'k.M2581.transcription*P1179.P2581.Cu.Y.D2581', 
+# 	nu = setStoic(x, c('P1179.P2581.Cu.Y.D2581', 'P1179.P2581.Cu.Y', 'D2581', 'M2581'), c(-1, +1, +1, +1)))
 
 rxn[['Mgfp degradation']] = list(
 	a = 'k.Mgfp.degradation*Mgfp', 

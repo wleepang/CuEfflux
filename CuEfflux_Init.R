@@ -24,6 +24,8 @@ x0 <- c(Cu							= 0,
 				P1179.Cu.D0700  = 0,
 				P1179.Cu.D0702  = 0,
 				P1179.Cu.D2581  = 0,
+				P1179.P2581.Cu.Y.D0700 = 0,
+				P1179.P2581.Cu.Y.D0702 = 0,
 				P1179.P2581.Cu.Y.D2581 = 0,
 				P1179.Cu.Dgfp   = 0,
 				Pgfp            = 0,
@@ -99,9 +101,9 @@ if (modelName %in% c('full')) {
 	
 	# disable interactions between P2581 and P0700
 	parms[regexpr('(.*P0700.*P2581)|(.*P2581.*P0700)', names(parms)) > 0] = 0
-	parms['k.P1179.Cu.by.P2581.Cu.Y.F1'] = 0.01
-  parms['k.P1179.Cu.by.P2581.Cu.Y.R1'] = 0.1
-  parms['k.P1179.Cu.by.P2581.Cu.Y.F2'] = 0
+# 	parms['k.P1179.Cu.by.P2581.Cu.Y.F1'] = 0.01
+#   parms['k.P1179.Cu.by.P2581.Cu.Y.R1'] = 0.1
+#   parms['k.P1179.Cu.by.P2581.Cu.Y.F2'] = 0.1
 
 	# disable interactions between P2581 and P1179
 	# parms[regexpr('(.*P1179.*P2581)|(.*P2581.*P1179)', names(parms)) > 0] = 0
@@ -113,9 +115,6 @@ if (modelName %in% c('full')) {
   # disable interactions between P0702 and P1179, Q
 	parms[regexpr('(.*P0702.*P1179)|(.*P1179.*P0702)', names(parms)) > 0] = 0
   parms[regexpr('(.*P0702.*Q)|(.*Q.*P0702)', names(parms)) > 0] = 0
-	
-	# disable P1179.Cu D2581 binding
-	parms['k.D2581.P1179.Cu.binding'] = 0
 
 	# strengthen transcription power
 	parms['k.M0700.transcription'] = parms['k.M0700.transcription']*10
