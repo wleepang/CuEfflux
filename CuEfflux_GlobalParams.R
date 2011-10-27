@@ -17,6 +17,7 @@ parms = c(
     k.D0702.P1179.Cu.binding = 0.01,
     k.D0702.P1179.Cu.dissociation = 0.1,
     k.D2581.P1179.Cu.binding = 0.01,      # twochap.xx
+    k.D2581.P1179.P2581.Cu.Y.binding = 0.01,
     k.D2581.P1179.Cu.dissociation = 0.1,  # twochap.xx
     k.Dgfp.P1179.Cu.binding = 0.01,
     k.Dgfp.P1179.Cu.dissociation = 0.1,
@@ -76,7 +77,18 @@ parms = c(
     k.Q.Cu.by.P2581.F1 = 0.01,           # twochap.xx
     k.Q.Cu.by.P2581.R1 = 0.1,            # twochap.xx
     k.Q.Cu.by.P2581.F2 = 1.0,            # twochap.xx
-    k.Q.Cu.non.specific = 0.001
+    k.Q.Cu.non.specific = 0.001,
+    k.X.Cu.by.P2581.F1 = 0.01, 
+    k.X.Cu.by.P2581.R1 = 0.1,
+    k.X.Cu.by.P2581.F2 = 0.1,
+    k.P0700.Cu.by.X.F1 = 0.01,
+    k.P0700.Cu.by.X.R1 = 0.1,
+    k.P0700.Cu.by.X.F2 = 0.1,
+    k.P2581.Cu.Y.F1 = 0.01,
+    k.P2581.Cu.Y.R1 = 0.1,
+    k.P1179.Cu.by.P2581.Cu.Y.F1 = 0.01,
+    k.P1179.Cu.by.P2581.Cu.Y.R1 = 0.1,
+    k.P1179.Cu.by.P2581.Cu.Y.F2 = 0.1
   )
 
  

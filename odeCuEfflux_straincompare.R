@@ -24,7 +24,7 @@ for (i in 1:dim(Strain)[1]) {
 	isKO2581 = s$KO2581
 	isOE0702 = s$OE0702
 	isOE2581 = s$OE2581
-	modelName = 'twochaps.lp'
+	modelName = 'full'
 	
 	source('CuEfflux_Init.R')
 	source('CuEfflux_rxnDef.R')
