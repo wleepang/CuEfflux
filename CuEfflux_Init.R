@@ -158,10 +158,10 @@ if (modelName %in% c('full')) {
 	parms['k.P2581.Cu.bind'] = 1
 	
 	# chaperone degradation
-	parms['k.P0702.degradation'] = 0.0001
-	parms['k.P2581.degradation'] = 0.001
-	parms['k.P0702.Cu.degradation'] = 0.0001
-	parms['k.P2581.Cu.degradation'] = 0.001
+	parms['k.P0702.degradation'] = 0.001
+	parms['k.P2581.degradation'] = 0.0001
+	parms['k.P0702.Cu.degradation'] = 0.001
+	parms['k.P2581.Cu.degradation'] = 0.0001
 	
 
 }
