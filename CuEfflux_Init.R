@@ -138,8 +138,8 @@ if (modelName %in% c('full')) {
   parms['k.P2581.Cu.P2581.dedimerization'] = 0
 	
 	# increase 2581 binding affinity
-	parms['k.P2581.Cu.bind'] = 1
-	parms['k.P2581.Cu.debind'] = 0.0001
+# 	parms['k.P2581.Cu.bind'] = 1
+# 	parms['k.P2581.Cu.debind'] = 0.0001
 	
 	# chaperone degradation, needs to be symmetric, only apo chaperones
 	parms['k.P0702.degradation'] = 0.0001
