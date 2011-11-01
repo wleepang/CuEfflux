@@ -116,14 +116,14 @@ if (modelName %in% c('full')) {
 	parms['k.P0702.Cu.by.P2581.R1'] = 1
 	
 	# increase P1179.Cu by P2581 activation rate
-	parms['k.P1179.Cu.by.P2581.R1'] = 0.01
-	parms['k.P1179.Cu.by.P2581.F2'] = 1
+# 	parms['k.P1179.Cu.by.P2581.R1'] = 0.01
+# 	parms['k.P1179.Cu.by.P2581.F2'] = 1
 	
 	# make P2581 expression the same as P0702
-# 	parms['k.M2581.transcription'] = parms['k.M0702.transcription']
-# 	parms['k.M2581.degradation'] = parms['k.M0702.degradation']
-# 	parms['k.OE2581.transcription'] = parms['k.OE0702.transcription']
-# 	parms['k.P2581.translation'] = parms['k.P0702.translation']
+	parms['k.M2581.transcription'] = parms['k.M0702.transcription']
+	parms['k.M2581.degradation'] = parms['k.M0702.degradation']
+	parms['k.OE2581.transcription'] = parms['k.OE0702.transcription']
+	parms['k.P2581.translation'] = parms['k.P0702.translation']
 	
 	# P2581 Cu dimerization
   parms['k.P0702.P2581.apo.dimerization'] = 0
@@ -138,6 +138,6 @@ if (modelName %in% c('full')) {
   parms['k.P2581.Cu.P2581.dedimerization'] = 0
 	
 	# chaperone degradation, needs to be symmetric, only apo chaperones
-	parms['k.P0702.degradation'] = 0.001
-	parms['k.P2581.degradation'] = 0
+	parms['k.P0702.degradation'] = 0.0001
+	parms['k.P2581.degradation'] = 0.0001
 }
