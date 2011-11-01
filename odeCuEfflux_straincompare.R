@@ -3,8 +3,8 @@ library(deSolve)
 library(matlab)
 source('CuEfflux_Func.R')
 
-result = matrix(0, nrow=7, ncol=2)
-colnames(result) = c('cu.ss', 'P0700.ss')
+result = matrix(0, nrow=7, ncol=3)
+colnames(result) = c('cu.ss', 'P0700.ss', 'Pgfp.ss')
 rownames(result) = c('wt', 'D0702', 'D2581', 'DD', 'O0702', 'O2581', 'OO')
 
 Strain = data.frame(strain=c('wt', 'D0702', 'D2581', 'DD', 'O0702', 'O2581', 'OO'),
@@ -81,13 +81,18 @@ for (n in names(trends)) {
 	
 	cu.ss = as.vector(.T('Cu', out)/out[,'V'])[length(t.abs)]
 	P0700.ss = as.vector(.T('P0700', out)/out[,'V'])[length(t.abs)]
+	Pgfp.ss =  as.vector(out[, 'Pgfp']/out[,'V'])[length(t.abs)]
 	
-	result[n,] = c(cu.ss, P0700.ss)
+	result[n,] = c(cu.ss, P0700.ss, Pgfp.ss)
 }															
 
 par(mfcol=c(1,1), oma=c(1.5, 2, 1, 1))
 barplot(result[,'cu.ss'], names.arg=rownames(result), ylab='[Cu]')
+barplot(result[,'cu.ss']/result['wt', 'cu.ss'], names.arg=rownames(result), ylab='Normalized Cu')
 barplot(result[,'P0700.ss'], names.arg=rownames(result), ylab='[P0700]', log='y')
+barplot(result[,'P0700.ss']/result['wt', 'P0700.ss'], names.arg=rownames(result), ylab='Normalized P0700', log='y')
+barplot(result[,'Pgfp.ss'], names.arg=rownames(result), ylab='[GFP]', log='y')
+barplot(result[,'Pgfp.ss']/result['wt', 'Pgfp.ss'], names.arg=rownames(result), ylab='Normalized GFP', log='y')
 
 dev.off()
 
@@ -99,3 +104,6 @@ for (n in names(trends)) {
 							quote=F,
 							row.names=F)
 }
+
+# save environment
+save.image(file=sprintf('odeCuEfflux_straincompare_%s_%s.RData', modelName, ts))
