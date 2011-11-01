@@ -17,8 +17,12 @@ x0 <- c(Cu							= 0,
 				P2581.Cu.P0700  = 0,
 				P2581.Cu.P1179  = 0,
 				P2581.Cu.Q      = 0,
+				P0702.P0702     = 0,
 				P0702.P2581			= 0,
+				P2581.P2581     = 0,
+				P0702.Cu.P0702  = 0,
 				P0702.Cu.P2581  = 0,
+				P2581.Cu.P2581  = 0,
 				P1179           = kGenomeCopy*6, # at least two regulators per controlled gene (excluding gfp)
 				P1179.Cu        = 0,
 				P1179.Cu.D0700  = 0,
@@ -91,8 +95,11 @@ if (modelName %in% c('full')) {
 	parms['k.P0702.Cu.bind'] = 0.0001
 	
 	# disable interactions between P2581 and P0700
-	parms[regexpr('(.*P0700.*P2581)|(.*P2581.*P0700)', names(parms)) > 0] = 0
-
+	#parms[regexpr('(.*P0700.*P2581)|(.*P2581.*P0700)', names(parms)) > 0] = 0
+	
+	# basal P2581 transfer of Cu to P0700
+	parms['k.P0700.Cu.by.P2581.F1'] = 0.001
+	
 	# strengthen Cu mediated dimerization
 	#parms['k.P0702.Cu.by.P2581.F1'] = 0.1
 	#parms['k.P0702.Cu.by.P2581.R1'] = 0.001
@@ -104,29 +111,55 @@ if (modelName %in% c('full')) {
   parms[regexpr('(.*P0702.*Q)|(.*Q.*P0702)', names(parms)) > 0] = 0
 
 	# strengthen transcription power
-	parms['k.M0700.transcription'] = parms['k.M0700.transcription']*10
-	parms['k.M0702.transcription'] = parms['k.M0702.transcription']*10
-	parms['k.M2581.transcription'] = parms['k.M2581.transcription']*10
-	parms['k.Mgfp.transcription']  = parms['k.Mgfp.transcription']*10
+# 	parms['k.M0700.transcription'] = parms['k.M0700.transcription']*10
+# 	parms['k.M0702.transcription'] = parms['k.M0702.transcription']*10
+# 	parms['k.M2581.transcription'] = parms['k.M2581.transcription']*10
+# 	parms['k.Mgfp.transcription']  = parms['k.Mgfp.transcription']*10
 	
-	# disable apo dimerization
-	parms[regexpr('apo', names(parms)) > 0] = 0
    
   # Reduce Q flux
-	parms['k.Q.Cu.by.P2581.F2'] = 0.1
+	parms['k.Q.Cu.by.P2581.F2'] = 100
 
 	# X delay between P2581 and P0700
-	parms['k.X.Cu.by.P2581.F1'] = 0.01 
-  parms['k.X.Cu.by.P2581.R1'] = 0.1
-  parms['k.X.Cu.by.P2581.F2'] = 0.1
-  parms['k.P0700.Cu.by.X.F1'] = 0.01
-  parms['k.P0700.Cu.by.X.R1'] = 0.1
-  parms['k.P0700.Cu.by.X.F2'] = 0.1
+# 	parms['k.X.Cu.by.P2581.F1'] = 0.01 
+#   parms['k.X.Cu.by.P2581.R1'] = 0.1
+#   parms['k.X.Cu.by.P2581.F2'] = 0.1
+#   parms['k.P0700.Cu.by.X.F1'] = 0.01
+#   parms['k.P0700.Cu.by.X.R1'] = 0.1
+#   parms['k.P0700.Cu.by.X.F2'] = 0.1
 	
 	# P2581.Cu.P0702 equillibrium
 	parms['k.P2581.Cu.by.P0702.R1'] = 1
 	parms['k.P0702.Cu.by.P2581.R1'] = 1
 	
 	# increase P1179.Cu by P2581 activation rate
+	parms['k.P1179.Cu.by.P2581.R1'] = 0.01
 	parms['k.P1179.Cu.by.P2581.F2'] = 1
+	
+	# make P2581 expression the same as P0702
+	parms['k.M2581.transcription'] = parms['k.M0702.transcription']
+	parms['k.M2581.degradation'] = parms['k.M0702.degradation']
+	parms['k.OE2581.transcription'] = parms['k.OE0702.transcription']
+	parms['k.P2581.translation'] = parms['k.P0702.translation']
+	
+	# P2581 Cu dimerization
+  parms['k.P0702.P2581.apo.dimerization'] = 0
+  parms['k.P0702.P2581.apo.dedimerization'] = 0
+  parms['k.P0702.P0702.apo.dimerization'] = 0
+  parms['k.P0702.P0702.apo.dedimerization'] = 0
+ 	parms['k.P2581.P2581.apo.dimerization'] = 0
+  parms['k.P2581.P2581.apo.dedimerization'] = 0
+ 	parms['k.P0702.Cu.P0702.dimerization'] = 0
+  parms['k.P0702.Cu.P0702.dedimerization'] = 0
+ 	parms['k.P2581.Cu.P2581.dimerization'] = 0
+  parms['k.P2581.Cu.P2581.dedimerization'] = 0
+	
+	# increase 2581 binding
+	parms['k.P2581.Cu.bind'] = 1
+	
+	# chaperone degradation
+	parms['k.P0702.degradation'] = 0.0001
+	parms['k.P2581.degradation'] = 0.0001
+	
+
 }
