@@ -214,7 +214,41 @@ rxn[['P0702.P2581 apo dimerization']] = list(
 rxn[['P0702.P2581 apo dedimerization']] = list(
 	a = 'k.P0702.P2581.apo.dedimerization*P0702.P2581',
 	nu = setStoic(x, c('P0702.P2581', 'P0702', 'P2581'), c(-1, +1, +1)))
-	
+
+rxn[['P2581.P2581 apo dimerization']] = list(
+	a = 'k.P2581.P2581.apo.dimerization*P2581*(P2581-1)/V^2',
+	nu = setStoic(x, c('P2581', 'P2581.P2581'), c(-2, +1)))
+
+rxn[['P2581.P2581 apo dedimerization']] = list(
+	a = 'k.P2581.P2581.apo.dedimerization*P2581.P2581',
+	nu = setStoic(x, c('P2581.P2581', 'P2581'), c(-1, +2)))
+
+rxn[['P0702.P0702 apo dimerization']] = list(
+	a = 'k.P0702.P0702.apo.dimerization*P0702*(P0702-1)/V^2',
+	nu = setStoic(x, c('P0702', 'P0702.P0702'), c(-2, +1)))
+
+rxn[['P0702.P0702 apo dedimerization']] = list(
+	a = 'k.P0702.P0702.apo.dedimerization*P0702.P0702',
+	nu = setStoic(x, c('P0702.P0702', 'P0702'), c(-1, +2)))
+
+
+rxn[['P2581.Cu.P2581 dimerization']] = list(
+	a = 'k.P2581.Cu.P2581.dimerization*P2581*P2581.Cu/V^2',
+	nu = setStoic(x, c('P2581', 'P2581.Cu', 'P2581.Cu.P2581'), c(-1, -1, +1)))
+
+rxn[['P2581.Cu.P2581 dedimerization']] = list(
+	a = 'k.P2581.Cu.P2581.dedimerization*P2581.Cu.P2581',
+	nu = setStoic(x, c('P2581.Cu.P2581', 'P2581.Cu', 'P2581'), c(-1, +1, +1)))
+
+rxn[['P0702.Cu.P0702 dimerization']] = list(
+	a = 'k.P0702.Cu.P0702.dimerization*P0702*P0702.Cu/V^2',
+	nu = setStoic(x, c('P0702', 'P0702.Cu', 'P0702.Cu.P0702'), c(-1, -1, +1)))
+
+rxn[['P0702.Cu.P0702 dedimerization']] = list(
+	a = 'k.P0702.Cu.P0702.dedimerization*P0702.Cu.P0702',
+	nu = setStoic(x, c('P0702.Cu.P0702', 'P0702.Cu', 'P0702'), c(-1, +1, +1)))
+
+
 rxn[['P1179.Cu by P0702 F1']] = list(
 	a = 'k.P1179.Cu.by.P0702.F1*P1179*P0702.Cu/V^2', 
 	nu = setStoic(x, c('P1179', 'P0702.Cu', 'P0702.Cu.P1179'), c(-1, -1, +1)))
