@@ -107,8 +107,8 @@ if (modelName %in% c('full')) {
 	parms[regexpr('(.*P0702.*P1179)|(.*P1179.*P0702)', names(parms)) > 0] = 0
   parms[regexpr('(.*P0702.*Q)|(.*Q.*P0702)', names(parms)) > 0] = 0
 	
-#   # Reduce Q flux
-# 	parms['k.Q.Cu.by.P2581.F2'] = 100
+  # increase Q flux
+	parms['k.Q.Cu.by.P2581.F2'] = 100
 # 	
 # 	# P2581.Cu.P0702 equillibrium
 # 	parms['k.P2581.Cu.by.P0702.R1'] = 1
