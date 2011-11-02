@@ -97,25 +97,18 @@ if (modelName %in% c('full')) {
 	# basal P2581 transfer of Cu to P0700
 	parms['k.P0700.Cu.by.P2581.F1'] = 0.001
 	
-	# strengthen Cu mediated dimerization
-	#parms['k.P0702.Cu.by.P2581.F1'] = 0.1
-	#parms['k.P0702.Cu.by.P2581.R1'] = 0.001
-  #parms['k.P2581.Cu.by.P0702.R1'] = 0.001
-	#parms['k.P2581.Cu.by.P0702.F1'] = 0.1
-	
   # disable interactions between P0702 and P1179, Q
 	parms[regexpr('(.*P0702.*P1179)|(.*P1179.*P0702)', names(parms)) > 0] = 0
   parms[regexpr('(.*P0702.*Q)|(.*Q.*P0702)', names(parms)) > 0] = 0
 	
-   
-  # Reduce Q flux
-	parms['k.Q.Cu.by.P2581.F2'] = 100
-	
-	# P2581.Cu.P0702 equillibrium
-	parms['k.P2581.Cu.by.P0702.R1'] = 1
-	parms['k.P0702.Cu.by.P2581.R1'] = 1
-	
-	# increase P1179.Cu by P2581 activation rate
+#   # Reduce Q flux
+# 	parms['k.Q.Cu.by.P2581.F2'] = 100
+# 	
+# 	# P2581.Cu.P0702 equillibrium
+# 	parms['k.P2581.Cu.by.P0702.R1'] = 1
+# 	parms['k.P0702.Cu.by.P2581.R1'] = 1
+# 	
+# 	# increase P1179.Cu by P2581 activation rate
 # 	parms['k.P1179.Cu.by.P2581.R1'] = 0.01
 # 	parms['k.P1179.Cu.by.P2581.F2'] = 1
 	
@@ -124,18 +117,6 @@ if (modelName %in% c('full')) {
 	parms['k.M2581.degradation'] = parms['k.M0702.degradation']
 	parms['k.OE2581.transcription'] = parms['k.OE0702.transcription']
 	parms['k.P2581.translation'] = parms['k.P0702.translation']
-	
-	# P2581 Cu dimerization
-  parms['k.P0702.P2581.apo.dimerization'] = 0
-  parms['k.P0702.P2581.apo.dedimerization'] = 0
-  parms['k.P0702.P0702.apo.dimerization'] = 0
-  parms['k.P0702.P0702.apo.dedimerization'] = 0
- 	parms['k.P2581.P2581.apo.dimerization'] = 0
-  parms['k.P2581.P2581.apo.dedimerization'] = 0
- 	parms['k.P0702.Cu.P0702.dimerization'] = 0
-  parms['k.P0702.Cu.P0702.dedimerization'] = 0
- 	parms['k.P2581.Cu.P2581.dimerization'] = 0
-  parms['k.P2581.Cu.P2581.dedimerization'] = 0
 	
 	# chaperone degradation, needs to be symmetric, only apo chaperones
 	parms['k.P0702.degradation'] = 0.0001
