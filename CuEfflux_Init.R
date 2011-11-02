@@ -119,6 +119,6 @@ if (modelName %in% c('full')) {
 	parms['k.P2581.translation'] = parms['k.P0702.translation']
 	
 	# chaperone degradation, needs to be symmetric, only apo chaperones
-	parms['k.P0702.degradation'] = 0.0001
-	parms['k.P2581.degradation'] = 0.0001
+	parms['k.P0702.degradation'] = 0.01
+	parms['k.P2581.degradation'] = 0.01
 }
