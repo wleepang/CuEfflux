@@ -107,7 +107,7 @@ if (modelName %in% c('full')) {
 	
 	# increase P1179.Cu by P2581 activation rate
 	parms['k.P1179.Cu.by.P2581.R1'] = 0.01
-	parms['k.P1179.Cu.by.P2581.F2'] = 0.1
+	parms['k.P1179.Cu.by.P2581.F2'] = 0.05
 	
 	# make P2581 expression the same as P0702
 	parms['k.M2581.transcription'] = parms['k.M0702.transcription']
