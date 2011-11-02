@@ -95,7 +95,13 @@ if (modelName %in% c('full')) {
 	parms['k.P0702.Cu.bind'] = 0.0001
 	
 	# basal P2581 transfer of Cu to P0700
+	parms['k.P0700.Cu.by.P0702.F1'] = 0.01
+	parms['k.P0700.Cu.by.P0702.R1'] = 0.001
+	parms['k.P0700.Cu.by.P0702.F2'] = 1.0
+	
 	parms['k.P0700.Cu.by.P2581.F1'] = 0.001
+	parms['k.P0700.Cu.by.P2581.R1'] = 0.001
+	parms['k.P0700.Cu.by.P2581.F2'] = 1.0
 	
   # disable interactions between P0702 and P1179, Q
 	parms[regexpr('(.*P0702.*P1179)|(.*P1179.*P0702)', names(parms)) > 0] = 0
