@@ -92,7 +92,7 @@ if (modelName %in% c('twochaps.lp')) {
 
 if (modelName %in% c('full')) {
 	# basal binding of Cu to P0700
-	parms['k.P0702.Cu.bind'] = 0.001
+	parms['k.P0702.Cu.bind'] = 0.0001
 	
 	# basal P2581 transfer of Cu to P0700
 	parms['k.P0700.Cu.by.P2581.F1'] = 0.001
@@ -120,5 +120,5 @@ if (modelName %in% c('full')) {
 	
 	# chaperone degradation, needs to be symmetric, only apo chaperones
 	parms['k.P0702.degradation'] = 0.0001
-	parms['k.P2581.degradation'] = 0.001
+	parms['k.P2581.degradation'] = 0.0005
 }
