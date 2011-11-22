@@ -5,6 +5,8 @@ source('CuEfflux_Func.R')
 # set global values
 source('CuEfflux_GlobalParams.R')
 
+modelName = 'onechap'
+
 # initialize set model parameters and initial state
 source('CuEfflux_Init.R')
 

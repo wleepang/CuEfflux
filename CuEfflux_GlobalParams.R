@@ -1,5 +1,5 @@
 ## global parameters
-modelName = 'onechap' # options: onechap, twochaps.nb, twochaps.lp
+modelName = 'full' # options: full, onechap, twochaps.nb, twochaps.lp
 kGenomeCopy = 25
 isKO0702 = FALSE
 isKO2581 = FALSE
@@ -17,6 +17,7 @@ parms = c(
     k.D0702.P1179.Cu.binding = 0.01,
     k.D0702.P1179.Cu.dissociation = 0.1,
     k.D2581.P1179.Cu.binding = 0.01,      # twochap.xx
+    k.D070X.P1179.P2581.Cu.Y.binding = 0.01,
     k.D2581.P1179.Cu.dissociation = 0.1,  # twochap.xx
     k.Dgfp.P1179.Cu.binding = 0.01,
     k.Dgfp.P1179.Cu.dissociation = 0.1,
@@ -35,66 +36,60 @@ parms = c(
     k.P0700.Cu.by.P0702.F2 = 1.0,
     k.P0700.Cu.by.P2581.F1 = 0.01,       # twochap.nb
     k.P0700.Cu.by.P2581.R1 = 0.1,        # twochap.nb
-    k.P0700.Cu.by.P2581.F2 = 0.1,        # twochap.nb, 10-fold less efficient than 0702
+    k.P0700.Cu.by.P2581.F2 = 1.0,        # nb = 0.1, twochap.nb, 10-fold less efficient than 0702
     k.P0700.Cu.dissociation = 0.0001,
     k.P0700.Cu.non.specific = 0.001,
     k.P0700.degradation = 0,
     k.P0700.translation = 0.002331,
     k.P0702.Cu.bind = 0.01,             # onechap, twochap.nb
     k.P0702.Cu.by.P1179.F1 = 0.01,      # onechap, twochap.nb
-    k.P0702.Cu.by.Q.F1 = 0.01,          # onechap, twochap.nb
+    k.P0702.Cu.by.Q.F1 = 0.001,          # onechap, twochap.nb
     k.P0702.Cu.by.P2581.F1 = 0.01,      # twochap.lp
+    k.P0702.Cu.by.P2581.R1 = 0.1,       # twochap.xx
     k.P0702.Cu.debind = 0.001,
-    k.P0702.Cu.degradation = 0, #0.00015,
+    k.P0702.Cu.degradation = 0,
     k.P0702.degradation = 0,
     k.P0702.translation = 0.0289855,
     k.P2581.Cu.bind = 0.01,             # twochap.xx
     k.P2581.Cu.by.P1179.F1 = 0.01,      # twochap.xx
     k.P2581.Cu.by.P0702.F1 = 0.01,      # twochap.xx
-    k.P2581.Cu.by.Q.F1 = 0.01,          # twochap.xx
-    k.P2581.Cu.debind = 0.001,          # twochap.xx
-    k.P2581.Cu.degradation = 0, #0.00015,   # twochap.xx
-    k.P2581.degradation = 0,            # twochap.xx
-    k.P2581.translation = 0.030769231,  # twochap.xx
-    k.P0702.Cu.by.P2581.R1 = 0.1,       # twochap.xx
     k.P2581.Cu.by.P0702.R1 = 0.1,       # twochap.xx
-    k.P1179.Cu.by.P0702.F1 = 0.01,       # onechap, twochap.nb
+    k.P2581.Cu.by.Q.F1 = 0.001,          # twochap.xx
+    k.P2581.Cu.debind = 0.001,          # twochap.xx
+    k.P2581.Cu.degradation = 0,
+    k.P2581.degradation = 0, 
+ 	k.P2581.translation = 0.030769231,  # twochap.xx
+    k.P0702.P2581.apo.dimerization = 0,
+    k.P0702.P2581.apo.dedimerization = 0, 
+    k.P0702.P0702.apo.dimerization = 0,
+    k.P0702.P0702.apo.dedimerization = 0, 
+ 	k.P2581.P2581.apo.dimerization = 0,
+    k.P2581.P2581.apo.dedimerization = 0, 
+ 	k.P0702.Cu.P0702.dimerization = 0,
+    k.P0702.Cu.P0702.dedimerization = 0, 
+ 	k.P2581.Cu.P2581.dimerization = 0,
+    k.P2581.Cu.P2581.dedimerization = 0, 
+ 	k.P1179.Cu.by.P0702.F1 = 0.01,       # onechap, twochap.nb
     k.P1179.Cu.by.P0702.R1 = 0.1,        # onechap, twochap.nb
     k.P1179.Cu.by.P0702.F2 = 0.1,        # onechap, twochap.nb
     k.P1179.Cu.by.P2581.F1 = 0.01,       # twochap.xx
     k.P1179.Cu.by.P2581.R1 = 0.1,        # twochap.xx
-    k.P1179.Cu.by.P2581.F2.nb = 0.01,    # twochap.nb, 10-fold less effecient than 0702
-    k.P1179.Cu.by.P2581.F2.lp = 0.1,     # twochap.lp
+    k.P1179.Cu.by.P2581.F2 = 0.1,    # twochap: nb = 0.01, lp = 0.1
     k.P1179.Cu.dissociation = 0.0001,
     k.P1179.Cu.non.specific = 0.001,
     k.Pgfp.degradation = 0,
     k.Pgfp.translation = 0.008333,
     k.Q.Cu.by.P0702.F1 = 0.01,           # onechap, twochap.nb
     k.Q.Cu.by.P0702.R1 = 0.1,            # onechap, twochap.nb
-    k.Q.Cu.by.P0702.F2 = 1.0,            # onechap, twochap.nb
-    k.Q.Cu.by.P0702.F2.nb = 0.1,         # twochap.nb, 10-fold less efficient than 2581
+    k.Q.Cu.by.P0702.F2 = 1.0,            # nb = 0.1, onechap, twochap.nb
     k.Q.Cu.by.P2581.F1 = 0.01,           # twochap.xx
     k.Q.Cu.by.P2581.R1 = 0.1,            # twochap.xx
     k.Q.Cu.by.P2581.F2 = 1.0,            # twochap.xx
     k.Q.Cu.non.specific = 0.001,
-    k.Q.Cu.turnover = 0
+    k.X.Cu.by.P2581.F1 = 0, 
+    k.X.Cu.by.P2581.R1 = 0,
+    k.X.Cu.by.P2581.F2 = 0,
+    k.P0700.Cu.by.X.F1 = 0,
+    k.P0700.Cu.by.X.R1 = 0,
+    k.P0700.Cu.by.X.F2 = 0
   )
-  
-if (modelName %in% c('onechap')) {
-  parms.oc = c(
-      
-    )
-}
- 
-if (modelName %in% c('onechap', 'twochaps.nb')) {
-  parms.oc.tcnb = c(
-      
-    )
-}
- 
-if (modelName %in% c('twochaps.nb', 'twochaps.lp')) {
-}
- 
-if (modelName %in% c('twochaps.lp')) {
-}
- 
