@@ -18,7 +18,6 @@ detail is currently under review at PLoS Computational Biology.
  - R (2.11 or higher)
  - R packages
     - deSolve
-    - matlab (optional)
 
 It is assumed that users have a basic understanding of the statistical computing
 environment R (freely available for [download](http://www.r-project.org)).
@@ -27,9 +26,6 @@ In order to perform simulations users must first install the `deSolve` package:
 ```{r}
 install.packages('deSolve')
 ```
-
-Convenient timing functions `tic()` and `toc()` are provided by the `matlab`
-package, whose installation is optional.
 
 ## Basic Simulation
 For an example of basic simulation code, refer to the file:
