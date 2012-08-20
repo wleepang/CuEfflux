@@ -1,10 +1,11 @@
 library(deSolve)
-library(matlab)
 source('CuEfflux_Func.R')
 
 # set global values
 source('CuEfflux_GlobalParams.R')
 
+# after global values are loaded you can change them explicitly here before
+# initializing the simulation
 modelName = 'full'
 
 # initialize set model parameters and initial state
@@ -17,9 +18,9 @@ source('CuEfflux_rxnDef.R')
 nu = set.nu(rxn)
 a  = set.a(rxn)
 
-tic()
+tic = proc.time()[3]
 out = ode(x0, seq(0,18000,by=100), dxdt, c(list(nu=nu, a=a), parms), method='daspk')
-toc()
+printf('Elapsed (s): %.3f', proc.time()[3] - tic)
 
 ## plot mRNA dynamics of default system
 t.abs = out[,'time'] / 60 # sim time is in seconds, convert to minutes
