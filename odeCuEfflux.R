@@ -6,7 +6,7 @@ source('CuEfflux_GlobalParams.R')
 
 # after global values are loaded you can change them explicitly here before
 # initializing the simulation
-modelName = 'full'
+modelVersion = 1.3
 
 # initialize set model parameters and initial state
 source('CuEfflux_Init.R')
