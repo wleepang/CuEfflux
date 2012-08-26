@@ -1,5 +1,8 @@
 ## global parameters
 modelName = 'full' # options: full, onechap, twochaps.nb, twochaps.lp
+modelVersion = 1.3 # options: 0, 1.1, 1.2, 1.3
+modelVersions = c(onechap=0, twochaps.nb=1.1, twochaps.lp=1.2, full=1.3)
+
 kGenomeCopy = 25
 isKO0702 = FALSE
 isKO2581 = FALSE
