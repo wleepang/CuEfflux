@@ -38,7 +38,7 @@ x0 <- c(Cu							= 0,
 				P0700.Cu.X      = 0,
 				V               = 1)
 
-if (modelName == 'onechap') {
+if (modelVersion == 0) {
   x0 = c(x0,
   			D0702           = kGenomeCopy*2*(!isKO0702),
 				D2581           = 0,
@@ -46,7 +46,7 @@ if (modelName == 'onechap') {
 				OE2581          = 0,
   			P0702           = 0*(!isKO0702),
   			P2581           = 0)
-} else if (modelName %in% c('full', 'twochaps.nb', 'twochaps.lp')) {
+} else if (modelVersion %in% c(1.1, 1.2, 1.3)) {
   x0 = c(x0,
     		D0702           = kGenomeCopy*(!isKO0702),
 				D2581           = kGenomeCopy*(!isKO2581),
@@ -57,12 +57,12 @@ if (modelName == 'onechap') {
 }
 
 # Initialize parameter set based on model name
-if (modelName %in% c('onechap')) {
+if (modelVersion %in% c(0)) {
 	# disable all reactions involving 2581
 	parms[regexpr('2581', names(parms)) > 0] = 0
 }
  
-if (modelName %in% c('twochaps.nb')) {
+if (modelVersion %in% c(1.1)) {
 	# weak interaction between P0702 and Q
 	parms['k.Q.Cu.by.P0702.F2'] = 0.1
 	
@@ -77,7 +77,7 @@ if (modelName %in% c('twochaps.nb')) {
 	
 }
  
-if (modelName %in% c('twochaps.lp')) {
+if (modelVersion %in% c(1.2)) {
 	# disable direct Cu binding by P0702
 	parms['k.P0702.Cu.bind'] = 0
 	
@@ -90,7 +90,7 @@ if (modelName %in% c('twochaps.lp')) {
 	
 }
 
-if (modelName %in% c('full')) {
+if (modelVersion %in% c(1.3)) {
 	# basal binding of Cu to P0700
 	parms['k.P0702.Cu.bind'] = 0.0002
 	
