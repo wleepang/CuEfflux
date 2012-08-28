@@ -45,20 +45,30 @@ for (n in names(x0)) {
 
 # create reactions
 
-reactList = rxn[[name]]$nu[which(rxn[[name]]$nu < 0)]
-prodList  = rxn[[name]]$nu[which(rxn[[name]]$nu > 0)]
-rateExpr  = rxn[[name]]$a
-#rateParams
-#this gets params based on regex match
-do.call('c', sapply(names(parms), function(p) {grep(p, rxn[[1]]$a, fixed=T)}))
-
-
-new('Reaction', id=id, name=name,
-    reactants=reactList,
-    products =prodList,
-    kineticLaw=new('KineticLaw', math=rateExpr, parameters=rateParams),
-    reversible=F
-    fast=F)
+for (r in length(rxn)) {
+  id = sprintf('r%d', r)
+  name = names(rxn)[r]
+  
+  speciesList = rxn[[name]]$nu[which(rxn[[name]]$nu < 0)]
+  reactList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=unname(speciesList[n]), species=n))})
+  
+  speciesList  = rxn[[name]]$nu[which(rxn[[name]]$nu > 0)]
+  prodList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=unname(speciesList[n]), species=n))})
+  
+  rateExpr  = rxn[[name]]$a
+  #rateParams
+  #this gets params based on regex match
+  rateParams = names(do.call('c', sapply(names(parms), function(p) {grep(p, rxn[[r]]$a, fixed=T)})))
+  
+  
+  new('Reaction', id=id, name=name,
+      reactants=reactList,
+      products =prodList,
+      kineticLaw=new('KineticLaw', math=rateExpr, parameters=rateParams),
+      reversible=F
+      fast=F)
+  
+}
 
 
 
