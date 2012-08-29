@@ -38,6 +38,7 @@ for (n in names(x0)) {
   sbml@model@species[[n]] = new('Species', 
                                 id=n, 
                                 name=n, 
+                                compartment='cytosol',
                                 initialAmount=unname(x0[n]), 
                                 substanceUnits='molecules', 
                                 hasOnlySubstanceUnits=T)
