@@ -18,10 +18,13 @@ rxn[['Cu export']] = list(
 	nu = setStoic(x, c('P0700.Cu', 'P0700'), c(-1, +1)))
 
 rxn[['Cu import']] = list(
-	a = paste('k.Cu.Import(Cu.out, ',
-						paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], collapse='+'),
-						', Cu.PartCoef, k.Cu.Import.BaseRate)*V', sep="", collapse = ""), 
-	nu = setStoic(x, c('Cu'), c(+1)))
+# 	a = paste('k.Cu.Import(Cu.out, ',
+# 						paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], collapse='+'),
+# 						', Cu.PartCoef, k.Cu.Import.BaseRate)*V', sep="", collapse = ""), 
+	a = paste('k.Cu.Import.BaseRate*(Cu.out - (',
+	          paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], collapse='+'),
+            ')*Cu.PartCoef)*V', sep='', collapse=''),
+  nu = setStoic(x, c('Cu'), c(+1)))
 
 rxn[['D0700 P1179.Cu binding']] = list(
 	a = 'k.D0700.P1179.Cu.binding*P1179.Cu*D0700/V^2', 
@@ -376,9 +379,9 @@ rxn[['Dgfp growth']] = list(
 	nu = setStoic(x, 'Dgfp', +1))
 
 rxn[['OE0702 growth']] = list(
-  a = paste('mu*(', paste(.T('OE0702'), collapse='+'), ')', sep='', collapse=''),
+  a = 'mu*OE0702',
 	nu = setStoic(x, 'OE0702', +1))
 
 rxn[['OE2581 growth']] = list(
-	a = paste('mu*(', paste(.T('OE2581'), collapse='+'), ')', sep='', collapse=''),
+	a = 'mu*OE2581',
 	nu = setStoic(x, 'OE2581', +1))
