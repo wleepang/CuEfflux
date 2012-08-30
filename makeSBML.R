@@ -23,6 +23,10 @@ a  = set.a(rxn)
 # create a generic model
 sbml = new('SBML')
 
+sbml@model@compartments[['default']] = new('Compartment',
+                                           id='default', name='default',
+                                           spatialDimensions=3L, size=1, units='litre')
+
 # create parameters
 for (n in names(parms)) {
   sbml@model@parameters[[n]] = new('Parameter',
@@ -38,7 +42,7 @@ for (n in names(x0)) {
   sbml@model@species[[n]] = new('Species', 
                                 id=n, 
                                 name=n, 
-                                compartment='cytosol',
+                                compartment='default',
                                 initialAmount=unname(x0[n]), 
                                 substanceUnits='molecules', 
                                 hasOnlySubstanceUnits=T)
@@ -47,22 +51,22 @@ for (n in names(x0)) {
 # create reactions
 
 for (r in 1:length(rxn)) {
-  id = sprintf('r%d', r)
-  name = names(rxn)[r]
+  .id = sprintf('r%d', r)
+  .name = names(rxn)[r]
   
-  speciesList = rxn[[name]]$nu[which(rxn[[name]]$nu < 0)]
+  speciesList = rxn[[.name]]$nu[which(rxn[[.name]]$nu < 0)]
   reactList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=abs(unname(speciesList[n])), species=n))})
   
-  speciesList  = rxn[[name]]$nu[which(rxn[[name]]$nu > 0)]
+  speciesList  = rxn[[.name]]$nu[which(rxn[[.name]]$nu > 0)]
   prodList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=abs(unname(speciesList[n])), species=n))})
   
-  rateExpr  = parse(text=rxn[[name]]$a)
+  rateExpr  = parse(text=rxn[[.name]]$a)
   #rateParams
   #this gets params based on regex match
   rateParams = names(do.call('c', sapply(names(parms), function(p) {grep(p, rxn[[r]]$a, fixed=T)})))
   rateParams = sbml@model@parameters[rateParams]
   
-  sbml@model@reactions[[id]] = new('Reaction', id=id, name=name,
+  sbml@model@reactions[[.id]] = new('Reaction', id=.id, name=.name,
                                     reactants=reactList,
                                     products =prodList,
                                     kineticLaw=new('KineticLaw', math=rateExpr, parameters=rateParams),
