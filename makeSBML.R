@@ -17,8 +17,23 @@ source('CuEfflux_Init.R')
 # produces a list() called 'rxn' that contains a_j and nu_j for each reaction
 source('CuEfflux_rxnDef.R')
 
-nu = set.nu(rxn)
-a  = set.a(rxn)
+#nu = set.nu(rxn)
+#a  = set.a(rxn)
+
+out = 'CuEfflux.xml'
+
+# it appears that sbml can't handle ids with '.' in them
+# gsub all '.' in names with '_'
+undot = function(n) {gsub('\\.', '_', n)}
+redot = function(n) {gsub('_', '\\.', n)}
+
+names(parms) = undot(names(parms))
+names(x0) = undot(names(x0))
+for (n in names(rxn)) {
+  names(rxn[[n]]$nu) = undot(names(rxn[[n]]$nu))
+  rxn[[n]]$a = undot(rxn[[n]]$a)
+}
+
 
 # create a generic model
 sbml = new('SBML')
@@ -26,27 +41,34 @@ sbml = new('SBML')
 sbml@model@compartments[['default']] = new('Compartment',
                                            id='default', name='default',
                                            spatialDimensions=3L, size=1, units='litre')
+rsbml_write(sbml, out)
+
 
 # create parameters
 for (n in names(parms)) {
-  sbml@model@parameters[[n]] = new('Parameter',
-                                   id=n,
+  .id = n
+  sbml@model@parameters[[.id]] = new('Parameter',
+                                   id=.id,
                                    name=n,
                                    value=unname(parms[n]),
                                    constant=T)
 }
 sbml@model@parameters[['mu']] = new('Parameter', id='mu', name='mu', value=mu, constant=T)
+rsbml_write(sbml, out)
 
 # create species
 for (n in names(x0)) {
-  sbml@model@species[[n]] = new('Species', 
-                                id=n, 
+  .id = n
+  sbml@model@species[[.id]] = new('Species', 
+                                id=.id, 
                                 name=n, 
                                 compartment='default',
                                 initialAmount=unname(x0[n]), 
                                 substanceUnits='molecules', 
                                 hasOnlySubstanceUnits=T)
 }
+rsbml_write(sbml, out)
+
 
 # create reactions
 
@@ -74,7 +96,7 @@ for (r in 1:length(rxn)) {
                                     fast=F)
   
 }
-
+rsbml_write(sbml, out)
 
 
 
