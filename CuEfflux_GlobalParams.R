@@ -88,11 +88,5 @@ parms = c(
     k.Q.Cu.by.P2581.F1 = 0.01,           # twochap.xx
     k.Q.Cu.by.P2581.R1 = 0.1,            # twochap.xx
     k.Q.Cu.by.P2581.F2 = 1.0,            # twochap.xx
-    k.Q.Cu.non.specific = 0.001,
-    k.X.Cu.by.P2581.F1 = 0, 
-    k.X.Cu.by.P2581.R1 = 0,
-    k.X.Cu.by.P2581.F2 = 0,
-    k.P0700.Cu.by.X.F1 = 0,
-    k.P0700.Cu.by.X.R1 = 0,
-    k.P0700.Cu.by.X.F2 = 0
+    k.Q.Cu.non.specific = 0.001
   )
