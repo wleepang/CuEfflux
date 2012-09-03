@@ -20,7 +20,7 @@ a  = set.a(rxn)
 
 tic = proc.time()['elapsed']
 out = ode(x0, seq(0,18000,by=100), dxdt, c(list(nu=nu, a=a), parms), method='daspk')
-printf('Elapsed (s): %.3f', proc.time()['elapsed'] - tic)
+printf('Elapsed (s): %.3f\n', (proc.time()['elapsed'] - tic))
 
 ## plot mRNA dynamics of default system
 t.abs = out[,'time'] / 60 # sim time is in seconds, convert to minutes
