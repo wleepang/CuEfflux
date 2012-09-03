@@ -138,3 +138,26 @@ plot(t.abs, .T('Cu', out)/out[, 'V'], type='l')
 The sequence of steps above describe the core simulation workflow.  All other
 analyses - e.g. parameter sweeps, strain comparisons, sensitivity analysis - 
 merely extend this workflow.
+
+## Appendix 1: SBML Export
+Code is available to convert the model as it exists in R to [SBML](www.sbml.org)
+a commonly used format for easy exchange and simulation of models in a variety
+of computational tools.
+
+### Requirements
+ - Cu Efflux Model R Code
+ - R 2.11 (or higher)
+ - R Packages:
+   - rsbml
+
+### Coversion
+To convert the R model to an SBML file simply run:
+```{r}
+source('makeSBML.R')
+```
+
+This will produce a file called `CuEfflux.xml` that is SBML L2V1 compliant which
+can then be imported and further modified/tested using SBML aware software tools
+such as:
+ - COPASI
+ - CellDesigner
