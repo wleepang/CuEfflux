@@ -32,6 +32,7 @@ names(x0) = undot(names(x0))
 for (n in names(rxn)) {
   names(rxn[[n]]$nu) = undot(names(rxn[[n]]$nu))
   rxn[[n]]$a = undot(rxn[[n]]$a)
+  rxn[[n]]$mods = undot(rxn[[n]]$mods)
 }
 
 
@@ -64,7 +65,7 @@ for (n in names(x0)) {
                                 name=n, 
                                 compartment='default',
                                 initialAmount=unname(x0[n]), 
-                                substanceUnits='molecules', 
+                                substanceUnits='item', 
                                 hasOnlySubstanceUnits=T)
 }
 rsbml_write(sbml, out)
@@ -76,27 +77,40 @@ for (r in 1:length(rxn)) {
   .id = sprintf('r%d', r)
   .name = names(rxn)[r]
   
-  speciesList = rxn[[.name]]$nu[which(rxn[[.name]]$nu < 0)]
-  reactList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=abs(unname(speciesList[n])), species=n))})
+  cat('rxn id:', .id, 'name:', .name)
   
-  speciesList  = rxn[[.name]]$nu[which(rxn[[.name]]$nu > 0)]
-  prodList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=abs(unname(speciesList[n])), species=n))})
-  
-  rateExpr  = parse(text=rxn[[.name]]$a)
-  #rateParams
-  #this gets params based on regex match
-  rateParams = names(do.call('c', sapply(names(parms), function(p) {grep(p, rxn[[r]]$a, fixed=T)})))
-  rateParams = sbml@model@parameters[rateParams]
-  
-  sbml@model@reactions[[.id]] = new('Reaction', id=.id, name=.name,
-                                    reactants=reactList,
-                                    products =prodList,
-                                    kineticLaw=new('KineticLaw', math=rateExpr, parameters=rateParams),
-                                    reversible=F,
-                                    fast=F)
-  
+  if (.name != 'No Reaction Has This Name') {
+    speciesList = rxn[[.name]]$nu[which(rxn[[.name]]$nu < 0)]
+    reactList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=abs(unname(speciesList[n])), species=n))})
+    
+    speciesList  = rxn[[.name]]$nu[which(rxn[[.name]]$nu > 0)]
+    prodList = sapply(names(speciesList), function(n){return(new('SpeciesReference', stoichiometry=abs(unname(speciesList[n])), species=n))})
+    
+    speciesList = rxn[[r]]$mods
+    modsList = sapply(speciesList, function(n){return(new('ModifierSpeciesReference', id=n, species=n))})
+    
+    cat(' math:', rxn[[.name]]$a)
+    rateExpr  = parse(text=rxn[[.name]]$a, srcfile=NULL)
+    #rateParams
+    #this gets params based on regex match
+    rateParams = names(do.call('c', sapply(c(names(parms), 'mu'), function(p) {grep(p, rxn[[r]]$a, fixed=T)})))
+    rateParams = sbml@model@parameters[rateParams]
+    
+    sbml@model@reactions[[.id]] = new('Reaction', id=.id, name=.name,
+                                      reactants=reactList,
+                                      products =prodList,
+                                      modifiers=modsList,
+                                      kineticLaw=new('KineticLaw', math=rateExpr, parameters=rateParams, timeUnits='second', substanceUnits='item'),
+                                      reversible=F,
+                                      fast=F)
+    rsbml_write(sbml, out)
+  } else {
+    cat()
+    cat(' math:', rxn[[.name]]$a, '#### skipped ####')
+  }
+  cat('\n')
 }
-rsbml_write(sbml, out)
+#rsbml_write(sbml, out)
 
 
 
