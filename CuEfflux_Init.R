@@ -32,10 +32,6 @@ x0 <- c(Cu							= 0,
 				Pgfp            = 0,
 				Q               = 1000,
 				Q.Cu            = 0, 
-				X               = 0,
-				X.Cu            = 0,
-				P2581.Cu.X      = 0,
-				P0700.Cu.X      = 0,
 				V               = 1)
 
 if (modelVersion == 0) {
