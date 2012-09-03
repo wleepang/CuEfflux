@@ -161,3 +161,22 @@ can then be imported and further modified/tested using SBML aware software tools
 such as:
  - COPASI
  - CellDesigner
+
+#### Caveats
+If any modifications to the model are made one must take the following into
+consideration prior to conversion to SBML.
+
+ 1. rsbml does not check SBML consistency. An SBML file may be produced but may
+    generate errors during import.
+ 2. Mathematical expressions for reaction KineticLaws converted from R to
+    SBML/MathML must be in fully expanded infix form - e.g.:
+```
+a*(b + c)
+```
+    will produce libSBML errors, whereas
+```
+a*b + a*c
+```
+    will covert to SBML/MathML.  This limitation is not specified anywhere in
+    either the rsbml, SBML, or libSBML documentation.
+ 3. Object names cannot have '.'.  Substituting with '_' passes.
