@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created by rsbml version 0.1 on 2012-09-02 19:31 with libSBML version 5.4.1. -->
+<!-- Created by rsbml version 0.1 on 2012-09-02 20:01 with libSBML version 5.4.1. -->
 <sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
-  <model>
+  <model name="CuEfflux Model v1.3">
     <listOfCompartments>
       <compartment id="default" name="default" spatialDimensions="3" size="1" units="litre" constant="true"/>
     </listOfCompartments>

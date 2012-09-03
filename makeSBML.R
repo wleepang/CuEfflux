@@ -38,6 +38,7 @@ for (n in names(rxn)) {
 
 # create a generic model
 sbml = new('SBML')
+name(model(sbml)) = sprintf('CuEfflux Model v%.1f', modelVersion)
 
 sbml@model@compartments[['default']] = new('Compartment',
                                            id='default', name='default',
