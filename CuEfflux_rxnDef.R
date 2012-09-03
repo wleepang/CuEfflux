@@ -22,11 +22,9 @@ rxn[['Cu import']] = list(
 # 	a = paste('k.Cu.Import(Cu.out, ',
 # 						paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], collapse='+'),
 # 						', Cu.PartCoef, k.Cu.Import.BaseRate)*V', sep="", collapse = ""), 
-	a = paste('k.Cu.Import.BaseRate*(Cu.out-(',
-	          paste(names(x)[(regexpr('Cu', names(x)) > 0) & (names(x) != 'Cu.out')], sep='', collapse='+'),
-            ')*Cu.PartCoef)*V', sep='', collapse=''),
+	a = paste('k.Cu.Import.BaseRate*V*Cu.out', paste('k.Cu.Import.BaseRate*V*Cu.PartCoef*', .T('Cu'), sep='', collapse='-'), sep='-', collapse='-'),
   nu = setStoic(x, c('Cu'), c(+1)),
-	mods= 'V')
+	mods= c('Cu.out', 'V', .T('Cu')[which(.T('Cu')!='Cu')]))
 
 rxn[['D0700 P1179.Cu binding']] = list(
 	a = 'k.D0700.P1179.Cu.binding*P1179.Cu*D0700/V^2', 
@@ -111,12 +109,12 @@ rxn[['Mgfp transcription']] = list(
 rxn[['OE0702 transcription']] = list(
 	a = 'k.OE0702.transcription*OE0702', 
 	nu = setStoic(x, 'M0702', +1),
-	mods= NULL)
+	mods= 'OE0702')
 
 rxn[['OE2581 transcription']] = list(
 	a = 'k.OE2581.transcription*OE2581', 
 	nu = setStoic(x, 'M2581', +1),
-	mods= NULL)
+	mods= 'OE2581')
 
 rxn[['P0700.Cu by P0702 F1']] = list(
 	a = 'k.P0700.Cu.by.P0702.F1*P0702.Cu*P0700/V^2', 
@@ -349,34 +347,40 @@ rxn[['V growth']] = list(
 	mods= NULL)
 
 rxn[['Q growth']] = list(
-	a = paste('mu*(', paste(.T('Q'), collapse='+'), ')', sep='', collapse=''),
+#	a = paste('mu * ( ', paste(.T('Q'), collapse=' + '), ' )', sep='', collapse=''),
+	a = paste('mu*', .T('Q'), sep='', collapse='+'),
 	nu = setStoic(x, 'Q', +1),
-	mods= NULL)
+	mods= .T('Q')[which(.T('Q')!='Q')])
 
 rxn[['P1179 growth']] = list(
-	a = paste('mu*(', paste(.T('P1179'), collapse='+'), ')', sep='', collapse=''),
+#  a = paste('mu*(', paste(.T('P1179'), collapse='+'), ')', sep='', collapse=''),
+  a = paste('mu*', .T('P1179'), sep='', collapse='+'),
 	nu = setStoic(x, 'P1179', +1),
-	mods= NULL)
+	mods= .T('P1179')[which(.T('P1179')!='P1179')])
 
 rxn[['D0700 growth']] = list(
-	a = paste('mu*(', paste(.T('D0700'), collapse='+'), ')', sep='', collapse=''),
+#  a = paste('mu*(', paste(.T('D0700'), collapse='+'), ')', sep='', collapse=''),
+  a = paste('mu*', .T('D0700'), sep='', collapse='+'),
 	nu = setStoic(x, 'D0700', +1),
-	mods= NULL)
+	mods= .T('D0700')[which(.T('D0700')!='D0700')])
 
 rxn[['D0702 growth']] = list(
-	a = paste('mu*(', paste(.T('D0702'), collapse='+'), ')', sep='', collapse=''),
+#  a = paste('mu*(', paste(.T('D0702'), collapse='+'), ')', sep='', collapse=''),
+  a = paste('mu*', .T('D0702'), sep='', collapse='+'),
 	nu = setStoic(x, 'D0702', +1),
-	mods= NULL)
+	mods= .T('D0702')[which(.T('D0702')!='D0702')])
 
 rxn[['D2581 growth']] = list(
-	a = paste('mu*(', paste(.T('D2581'), collapse='+'), ')', sep='', collapse=''),
+#  a = paste('mu*(', paste(.T('D2581'), collapse='+'), ')', sep='', collapse=''),
+  a = paste('mu*', .T('D2581'), sep='', collapse='+'),
 	nu = setStoic(x, 'D2581', +1),
-	mods= NULL)
+	mods= .T('D2581')[which(.T('D2581')!='D2581')])
 
 rxn[['Dgfp growth']] = list(
-	a = paste('mu*(', paste(.T('Dgfp'), collapse='+'), ')', sep='', collapse=''),
+#  a = paste('mu*(', paste(.T('Dgfp'), collapse='+'), ')', sep='', collapse=''),
+  a = paste('mu*', .T('Dgfp'), sep='', collapse='+'),
 	nu = setStoic(x, 'Dgfp', +1),
-	mods= NULL)
+	mods= .T('Dgfp')[which(.T('Dgfp')!='Dgfp')])
 
 rxn[['OE0702 growth']] = list(
   a = 'mu*OE0702',
