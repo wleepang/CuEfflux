@@ -8,7 +8,7 @@ source('CuEfflux_GlobalParams.R')
 
 # after global values are loaded you can change them explicitly here before
 # initializing the simulation
-modelVersion = 1.3
+modelVersion = 0
 
 # initialize set model parameters and initial state
 source('CuEfflux_Init.R')
@@ -20,7 +20,7 @@ source('CuEfflux_rxnDef.R')
 #nu = set.nu(rxn)
 #a  = set.a(rxn)
 
-out = 'CuEfflux.xml'
+out = sprintf('CuEffluxModel%s.xml', sub('\\.', 'p', as.character(modelVersion)))
 
 # it appears that sbml can't handle ids with '.' in them
 # gsub all '.' in names with '_'
