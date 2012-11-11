@@ -1,0 +1,2153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by rsbml version 0.1 on 2012-11-11 08:33 with libSBML version 5.4.1. -->
+<sbml xmlns="http://www.sbml.org/sbml/level2" level="2" version="1">
+  <model name="CuEfflux Model v1.1">
+    <listOfCompartments>
+      <compartment id="default" name="default" spatialDimensions="3" size="1" units="litre" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="Cu" name="Cu" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="Cu_out" name="Cu_out" compartment="default" initialAmount="500000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="D0700" name="D0700" compartment="default" initialAmount="25" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="Dgfp" name="Dgfp" compartment="default" initialAmount="25" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="M0700" name="M0700" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="M0702" name="M0702" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="M2581" name="M2581" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="Mgfp" name="Mgfp" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0700" name="P0700" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0700_Cu" name="P0700_Cu" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0702_Cu" name="P0702_Cu" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0702_Cu_P0700" name="P0702_Cu_P0700" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0702_Cu_P1179" name="P0702_Cu_P1179" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0702_Cu_Q" name="P0702_Cu_Q" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P2581_Cu" name="P2581_Cu" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P2581_Cu_P0700" name="P2581_Cu_P0700" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P2581_Cu_P1179" name="P2581_Cu_P1179" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P2581_Cu_Q" name="P2581_Cu_Q" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0702_Cu_P2581" name="P0702_Cu_P2581" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P1179" name="P1179" compartment="default" initialAmount="150" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P1179_Cu" name="P1179_Cu" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P1179_Cu_D0700" name="P1179_Cu_D0700" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P1179_Cu_D0702" name="P1179_Cu_D0702" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P1179_Cu_D2581" name="P1179_Cu_D2581" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P1179_Cu_Dgfp" name="P1179_Cu_Dgfp" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="Pgfp" name="Pgfp" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="Q" name="Q" compartment="default" initialAmount="1000" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="Q_Cu" name="Q_Cu" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="V" name="V" compartment="default" initialAmount="1" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="D0702" name="D0702" compartment="default" initialAmount="25" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="D2581" name="D2581" compartment="default" initialAmount="25" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="OE0702" name="OE0702" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="OE2581" name="OE2581" compartment="default" initialAmount="0" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P0702" name="P0702" compartment="default" initialAmount="350" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+      <species id="P2581" name="P2581" compartment="default" initialAmount="350" substanceUnits="item" hasOnlySubstanceUnits="true" boundaryCondition="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="k_Cu_export" name="k_Cu_export" value="0.1" constant="true"/>
+      <parameter id="Cu_PartCoef" name="Cu_PartCoef" value="1000" constant="true"/>
+      <parameter id="k_Cu_Import_BaseRate" name="k_Cu_Import_BaseRate" value="1e-005" constant="true"/>
+      <parameter id="k_D0700_P1179_Cu_binding" name="k_D0700_P1179_Cu_binding" value="0.01" constant="true"/>
+      <parameter id="k_D0700_P1179_Cu_dissociation" name="k_D0700_P1179_Cu_dissociation" value="0.1" constant="true"/>
+      <parameter id="k_D0702_P1179_Cu_binding" name="k_D0702_P1179_Cu_binding" value="0.01" constant="true"/>
+      <parameter id="k_D0702_P1179_Cu_dissociation" name="k_D0702_P1179_Cu_dissociation" value="0.1" constant="true"/>
+      <parameter id="k_D2581_P1179_Cu_binding" name="k_D2581_P1179_Cu_binding" value="0.01" constant="true"/>
+      <parameter id="k_D070X_P1179_P2581_Cu_Y_binding" name="k_D070X_P1179_P2581_Cu_Y_binding" value="0.01" constant="true"/>
+      <parameter id="k_D2581_P1179_Cu_dissociation" name="k_D2581_P1179_Cu_dissociation" value="0.1" constant="true"/>
+      <parameter id="k_Dgfp_P1179_Cu_binding" name="k_Dgfp_P1179_Cu_binding" value="0.01" constant="true"/>
+      <parameter id="k_Dgfp_P1179_Cu_dissociation" name="k_Dgfp_P1179_Cu_dissociation" value="0.1" constant="true"/>
+      <parameter id="k_M0700_degradation" name="k_M0700_degradation" value="0.00180197" constant="true"/>
+      <parameter id="k_M0700_transcription" name="k_M0700_transcription" value="0.207918" constant="true"/>
+      <parameter id="k_M0702_degradation" name="k_M0702_degradation" value="0.00136725" constant="true"/>
+      <parameter id="k_M0702_transcription" name="k_M0702_transcription" value="0.646571" constant="true"/>
+      <parameter id="k_M2581_degradation" name="k_M2581_degradation" value="0.003262" constant="true"/>
+      <parameter id="k_M2581_transcription" name="k_M2581_transcription" value="0.424167" constant="true"/>
+      <parameter id="k_Mgfp_degradation" name="k_Mgfp_degradation" value="0.001" constant="true"/>
+      <parameter id="k_Mgfp_transcription" name="k_Mgfp_transcription" value="0.138889" constant="true"/>
+      <parameter id="k_OE0702_transcription" name="k_OE0702_transcription" value="0.00646571" constant="true"/>
+      <parameter id="k_OE2581_transcription" name="k_OE2581_transcription" value="0.00424167" constant="true"/>
+      <parameter id="k_P0700_Cu_by_P0702_F1" name="k_P0700_Cu_by_P0702_F1" value="0.01" constant="true"/>
+      <parameter id="k_P0700_Cu_by_P0702_R1" name="k_P0700_Cu_by_P0702_R1" value="0.1" constant="true"/>
+      <parameter id="k_P0700_Cu_by_P0702_F2" name="k_P0700_Cu_by_P0702_F2" value="1" constant="true"/>
+      <parameter id="k_P0700_Cu_by_P2581_F1" name="k_P0700_Cu_by_P2581_F1" value="0.01" constant="true"/>
+      <parameter id="k_P0700_Cu_by_P2581_R1" name="k_P0700_Cu_by_P2581_R1" value="0.1" constant="true"/>
+      <parameter id="k_P0700_Cu_by_P2581_F2" name="k_P0700_Cu_by_P2581_F2" value="0.1" constant="true"/>
+      <parameter id="k_P0700_Cu_dissociation" name="k_P0700_Cu_dissociation" value="0.0001" constant="true"/>
+      <parameter id="k_P0700_Cu_non_specific" name="k_P0700_Cu_non_specific" value="0.001" constant="true"/>
+      <parameter id="k_P0700_degradation" name="k_P0700_degradation" value="0" constant="true"/>
+      <parameter id="k_P0700_translation" name="k_P0700_translation" value="0.002331" constant="true"/>
+      <parameter id="k_P0702_Cu_bind" name="k_P0702_Cu_bind" value="0.01" constant="true"/>
+      <parameter id="k_P0702_Cu_by_P1179_F1" name="k_P0702_Cu_by_P1179_F1" value="0.01" constant="true"/>
+      <parameter id="k_P0702_Cu_by_Q_F1" name="k_P0702_Cu_by_Q_F1" value="0.001" constant="true"/>
+      <parameter id="k_P0702_Cu_by_P2581_F1" name="k_P0702_Cu_by_P2581_F1" value="0" constant="true"/>
+      <parameter id="k_P0702_Cu_by_P2581_R1" name="k_P0702_Cu_by_P2581_R1" value="0" constant="true"/>
+      <parameter id="k_P0702_Cu_debind" name="k_P0702_Cu_debind" value="0.001" constant="true"/>
+      <parameter id="k_P0702_Cu_degradation" name="k_P0702_Cu_degradation" value="0" constant="true"/>
+      <parameter id="k_P0702_degradation" name="k_P0702_degradation" value="0" constant="true"/>
+      <parameter id="k_P0702_translation" name="k_P0702_translation" value="0.0289855" constant="true"/>
+      <parameter id="k_P2581_Cu_bind" name="k_P2581_Cu_bind" value="0.01" constant="true"/>
+      <parameter id="k_P2581_Cu_by_P1179_F1" name="k_P2581_Cu_by_P1179_F1" value="0.01" constant="true"/>
+      <parameter id="k_P2581_Cu_by_P0702_F1" name="k_P2581_Cu_by_P0702_F1" value="0" constant="true"/>
+      <parameter id="k_P2581_Cu_by_P0702_R1" name="k_P2581_Cu_by_P0702_R1" value="0" constant="true"/>
+      <parameter id="k_P2581_Cu_by_Q_F1" name="k_P2581_Cu_by_Q_F1" value="0.001" constant="true"/>
+      <parameter id="k_P2581_Cu_debind" name="k_P2581_Cu_debind" value="0.001" constant="true"/>
+      <parameter id="k_P2581_Cu_degradation" name="k_P2581_Cu_degradation" value="0" constant="true"/>
+      <parameter id="k_P2581_degradation" name="k_P2581_degradation" value="0" constant="true"/>
+      <parameter id="k_P2581_translation" name="k_P2581_translation" value="0.030769231" constant="true"/>
+      <parameter id="k_P1179_Cu_by_P0702_F1" name="k_P1179_Cu_by_P0702_F1" value="0.01" constant="true"/>
+      <parameter id="k_P1179_Cu_by_P0702_R1" name="k_P1179_Cu_by_P0702_R1" value="0.1" constant="true"/>
+      <parameter id="k_P1179_Cu_by_P0702_F2" name="k_P1179_Cu_by_P0702_F2" value="0.1" constant="true"/>
+      <parameter id="k_P1179_Cu_by_P2581_F1" name="k_P1179_Cu_by_P2581_F1" value="0.01" constant="true"/>
+      <parameter id="k_P1179_Cu_by_P2581_R1" name="k_P1179_Cu_by_P2581_R1" value="0.1" constant="true"/>
+      <parameter id="k_P1179_Cu_by_P2581_F2" name="k_P1179_Cu_by_P2581_F2" value="0.01" constant="true"/>
+      <parameter id="k_P1179_Cu_dissociation" name="k_P1179_Cu_dissociation" value="0.0001" constant="true"/>
+      <parameter id="k_P1179_Cu_non_specific" name="k_P1179_Cu_non_specific" value="0.001" constant="true"/>
+      <parameter id="k_Pgfp_degradation" name="k_Pgfp_degradation" value="0" constant="true"/>
+      <parameter id="k_Pgfp_translation" name="k_Pgfp_translation" value="0.008333" constant="true"/>
+      <parameter id="k_Q_Cu_by_P0702_F1" name="k_Q_Cu_by_P0702_F1" value="0.01" constant="true"/>
+      <parameter id="k_Q_Cu_by_P0702_R1" name="k_Q_Cu_by_P0702_R1" value="0.1" constant="true"/>
+      <parameter id="k_Q_Cu_by_P0702_F2" name="k_Q_Cu_by_P0702_F2" value="0.1" constant="true"/>
+      <parameter id="k_Q_Cu_by_P2581_F1" name="k_Q_Cu_by_P2581_F1" value="0.01" constant="true"/>
+      <parameter id="k_Q_Cu_by_P2581_R1" name="k_Q_Cu_by_P2581_R1" value="0.1" constant="true"/>
+      <parameter id="k_Q_Cu_by_P2581_F2" name="k_Q_Cu_by_P2581_F2" value="1" constant="true"/>
+      <parameter id="k_Q_Cu_non_specific" name="k_Q_Cu_non_specific" value="0.001" constant="true"/>
+      <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction id="r1" name="Cu export" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0700_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0700" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Cu_export </ci>
+              <ci> P0700_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Cu_export" name="k_Cu_export" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r2" name="Cu import" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Cu_out"/>
+          <modifierSpeciesReference species="V"/>
+          <modifierSpeciesReference species="P0700_Cu"/>
+          <modifierSpeciesReference species="P0702_Cu"/>
+          <modifierSpeciesReference species="P0702_Cu_P0700"/>
+          <modifierSpeciesReference species="P0702_Cu_P1179"/>
+          <modifierSpeciesReference species="P0702_Cu_Q"/>
+          <modifierSpeciesReference species="P2581_Cu"/>
+          <modifierSpeciesReference species="P2581_Cu_P0700"/>
+          <modifierSpeciesReference species="P2581_Cu_P1179"/>
+          <modifierSpeciesReference species="P2581_Cu_Q"/>
+          <modifierSpeciesReference species="P0702_Cu_P2581"/>
+          <modifierSpeciesReference species="P1179_Cu"/>
+          <modifierSpeciesReference species="P1179_Cu_D0700"/>
+          <modifierSpeciesReference species="P1179_Cu_D0702"/>
+          <modifierSpeciesReference species="P1179_Cu_D2581"/>
+          <modifierSpeciesReference species="P1179_Cu_Dgfp"/>
+          <modifierSpeciesReference species="Q_Cu"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <minus/>
+              <apply>
+                <minus/>
+                <apply>
+                  <minus/>
+                  <apply>
+                    <minus/>
+                    <apply>
+                      <minus/>
+                      <apply>
+                        <minus/>
+                        <apply>
+                          <minus/>
+                          <apply>
+                            <minus/>
+                            <apply>
+                              <minus/>
+                              <apply>
+                                <minus/>
+                                <apply>
+                                  <minus/>
+                                  <apply>
+                                    <minus/>
+                                    <apply>
+                                      <minus/>
+                                      <apply>
+                                        <minus/>
+                                        <apply>
+                                          <minus/>
+                                          <apply>
+                                            <minus/>
+                                            <apply>
+                                              <minus/>
+                                              <apply>
+                                                <times/>
+                                                <ci> k_Cu_Import_BaseRate </ci>
+                                                <ci> V </ci>
+                                                <ci> Cu_out </ci>
+                                              </apply>
+                                              <apply>
+                                                <times/>
+                                                <ci> k_Cu_Import_BaseRate </ci>
+                                                <ci> V </ci>
+                                                <ci> Cu_PartCoef </ci>
+                                                <ci> Cu </ci>
+                                              </apply>
+                                            </apply>
+                                            <apply>
+                                              <times/>
+                                              <ci> k_Cu_Import_BaseRate </ci>
+                                              <ci> V </ci>
+                                              <ci> Cu_PartCoef </ci>
+                                              <ci> P0700_Cu </ci>
+                                            </apply>
+                                          </apply>
+                                          <apply>
+                                            <times/>
+                                            <ci> k_Cu_Import_BaseRate </ci>
+                                            <ci> V </ci>
+                                            <ci> Cu_PartCoef </ci>
+                                            <ci> P0702_Cu </ci>
+                                          </apply>
+                                        </apply>
+                                        <apply>
+                                          <times/>
+                                          <ci> k_Cu_Import_BaseRate </ci>
+                                          <ci> V </ci>
+                                          <ci> Cu_PartCoef </ci>
+                                          <ci> P0702_Cu_P0700 </ci>
+                                        </apply>
+                                      </apply>
+                                      <apply>
+                                        <times/>
+                                        <ci> k_Cu_Import_BaseRate </ci>
+                                        <ci> V </ci>
+                                        <ci> Cu_PartCoef </ci>
+                                        <ci> P0702_Cu_P1179 </ci>
+                                      </apply>
+                                    </apply>
+                                    <apply>
+                                      <times/>
+                                      <ci> k_Cu_Import_BaseRate </ci>
+                                      <ci> V </ci>
+                                      <ci> Cu_PartCoef </ci>
+                                      <ci> P0702_Cu_Q </ci>
+                                    </apply>
+                                  </apply>
+                                  <apply>
+                                    <times/>
+                                    <ci> k_Cu_Import_BaseRate </ci>
+                                    <ci> V </ci>
+                                    <ci> Cu_PartCoef </ci>
+                                    <ci> P2581_Cu </ci>
+                                  </apply>
+                                </apply>
+                                <apply>
+                                  <times/>
+                                  <ci> k_Cu_Import_BaseRate </ci>
+                                  <ci> V </ci>
+                                  <ci> Cu_PartCoef </ci>
+                                  <ci> P2581_Cu_P0700 </ci>
+                                </apply>
+                              </apply>
+                              <apply>
+                                <times/>
+                                <ci> k_Cu_Import_BaseRate </ci>
+                                <ci> V </ci>
+                                <ci> Cu_PartCoef </ci>
+                                <ci> P2581_Cu_P1179 </ci>
+                              </apply>
+                            </apply>
+                            <apply>
+                              <times/>
+                              <ci> k_Cu_Import_BaseRate </ci>
+                              <ci> V </ci>
+                              <ci> Cu_PartCoef </ci>
+                              <ci> P2581_Cu_Q </ci>
+                            </apply>
+                          </apply>
+                          <apply>
+                            <times/>
+                            <ci> k_Cu_Import_BaseRate </ci>
+                            <ci> V </ci>
+                            <ci> Cu_PartCoef </ci>
+                            <ci> P0702_Cu_P2581 </ci>
+                          </apply>
+                        </apply>
+                        <apply>
+                          <times/>
+                          <ci> k_Cu_Import_BaseRate </ci>
+                          <ci> V </ci>
+                          <ci> Cu_PartCoef </ci>
+                          <ci> P1179_Cu </ci>
+                        </apply>
+                      </apply>
+                      <apply>
+                        <times/>
+                        <ci> k_Cu_Import_BaseRate </ci>
+                        <ci> V </ci>
+                        <ci> Cu_PartCoef </ci>
+                        <ci> P1179_Cu_D0700 </ci>
+                      </apply>
+                    </apply>
+                    <apply>
+                      <times/>
+                      <ci> k_Cu_Import_BaseRate </ci>
+                      <ci> V </ci>
+                      <ci> Cu_PartCoef </ci>
+                      <ci> P1179_Cu_D0702 </ci>
+                    </apply>
+                  </apply>
+                  <apply>
+                    <times/>
+                    <ci> k_Cu_Import_BaseRate </ci>
+                    <ci> V </ci>
+                    <ci> Cu_PartCoef </ci>
+                    <ci> P1179_Cu_D2581 </ci>
+                  </apply>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> k_Cu_Import_BaseRate </ci>
+                  <ci> V </ci>
+                  <ci> Cu_PartCoef </ci>
+                  <ci> P1179_Cu_Dgfp </ci>
+                </apply>
+              </apply>
+              <apply>
+                <times/>
+                <ci> k_Cu_Import_BaseRate </ci>
+                <ci> V </ci>
+                <ci> Cu_PartCoef </ci>
+                <ci> Q_Cu </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="Cu_PartCoef" name="Cu_PartCoef" value="1000" constant="true"/>
+            <parameter id="k_Cu_Import_BaseRate" name="k_Cu_Import_BaseRate" value="1e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r3" name="D0700 P1179.Cu binding" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="D0700" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu_D0700" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_D0700_P1179_Cu_binding </ci>
+                <ci> P1179_Cu </ci>
+                <ci> D0700 </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_D0700_P1179_Cu_binding" name="k_D0700_P1179_Cu_binding" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r4" name="D0700 P1179.Cu dissociation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_D0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="D0700" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_D0700_P1179_Cu_dissociation </ci>
+              <ci> P1179_Cu_D0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_D0700_P1179_Cu_dissociation" name="k_D0700_P1179_Cu_dissociation" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r5" name="D0702 P1179.Cu binding" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="D0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu_D0702" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_D0702_P1179_Cu_binding </ci>
+                <ci> P1179_Cu </ci>
+                <ci> D0702 </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_D0702_P1179_Cu_binding" name="k_D0702_P1179_Cu_binding" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r6" name="D0702 P1179.Cu dissociation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_D0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="D0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_D0702_P1179_Cu_dissociation </ci>
+              <ci> P1179_Cu_D0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_D0702_P1179_Cu_dissociation" name="k_D0702_P1179_Cu_dissociation" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r7" name="D2581 P1179.Cu binding" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="D2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu_D2581" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_D2581_P1179_Cu_binding </ci>
+                <ci> P1179_Cu </ci>
+                <ci> D2581 </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_D2581_P1179_Cu_binding" name="k_D2581_P1179_Cu_binding" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r8" name="D2581 P1179.Cu dissociation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_D2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="D2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_D2581_P1179_Cu_dissociation </ci>
+              <ci> P1179_Cu_D2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_D2581_P1179_Cu_dissociation" name="k_D2581_P1179_Cu_dissociation" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r9" name="Dgfp P1179.Cu binding" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Dgfp" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu_Dgfp" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_Dgfp_P1179_Cu_binding </ci>
+                <ci> P1179_Cu </ci>
+                <ci> Dgfp </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Dgfp_P1179_Cu_binding" name="k_Dgfp_P1179_Cu_binding" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r10" name="Dgfp P1179.Cu dissociation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_Dgfp" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Dgfp" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Dgfp_P1179_Cu_dissociation </ci>
+              <ci> P1179_Cu_Dgfp </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Dgfp_P1179_Cu_dissociation" name="k_Dgfp_P1179_Cu_dissociation" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r11" name="M0700 degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="M0700" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_M0700_degradation </ci>
+              <ci> M0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_M0700_degradation" name="k_M0700_degradation" value="0.00180197" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r12" name="M0700 transcription" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_D0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="D0700" stoichiometry="1"/>
+          <speciesReference species="M0700" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_M0700_transcription </ci>
+              <ci> P1179_Cu_D0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_M0700_transcription" name="k_M0700_transcription" value="0.207918" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r13" name="M0702 degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="M0702" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_M0702_degradation </ci>
+              <ci> M0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_M0702_degradation" name="k_M0702_degradation" value="0.00136725" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r14" name="M0702 transcription" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_D0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M0702" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="D0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_M0702_transcription </ci>
+              <ci> P1179_Cu_D0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_M0702_transcription" name="k_M0702_transcription" value="0.646571" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r15" name="M2581 degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="M2581" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_M2581_degradation </ci>
+              <ci> M2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_M2581_degradation" name="k_M2581_degradation" value="0.003262" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r16" name="M2581 transcription" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_D2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M2581" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="D2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_M2581_transcription </ci>
+              <ci> P1179_Cu_D2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_M2581_transcription" name="k_M2581_transcription" value="0.424167" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r17" name="Mgfp degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Mgfp" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Mgfp_degradation </ci>
+              <ci> Mgfp </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Mgfp_degradation" name="k_Mgfp_degradation" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r18" name="Mgfp transcription" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu_Dgfp" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Dgfp" stoichiometry="1"/>
+          <speciesReference species="Mgfp" stoichiometry="1"/>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Mgfp_transcription </ci>
+              <ci> P1179_Cu_Dgfp </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Mgfp_transcription" name="k_Mgfp_transcription" value="0.138889" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r19" name="OE0702 transcription" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="M0702" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="OE0702"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_OE0702_transcription </ci>
+              <ci> OE0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_OE0702_transcription" name="k_OE0702_transcription" value="0.00646571" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r20" name="OE2581 transcription" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="M2581" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="OE2581"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_OE2581_transcription </ci>
+              <ci> OE2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_OE2581_transcription" name="k_OE2581_transcription" value="0.00424167" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r21" name="P0700.Cu by P0702 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0700" stoichiometry="1"/>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_P0700" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0700_Cu_by_P0702_F1 </ci>
+                <ci> P0702_Cu </ci>
+                <ci> P0700 </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_by_P0702_F1" name="k_P0700_Cu_by_P0702_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r22" name="P0700.Cu by P0702 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_P0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0700" stoichiometry="1"/>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_Cu_by_P0702_R1 </ci>
+              <ci> P0702_Cu_P0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_by_P0702_R1" name="k_P0700_Cu_by_P0702_R1" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r23" name="P0700.Cu by P0702 F2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_P0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0700_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_Cu_by_P0702_F2 </ci>
+              <ci> P0702_Cu_P0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_by_P0702_F2" name="k_P0700_Cu_by_P0702_F2" value="1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r24" name="P0700.Cu by P2581 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0700" stoichiometry="1"/>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu_P0700" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0700_Cu_by_P2581_F1 </ci>
+                <ci> P2581_Cu </ci>
+                <ci> P0700 </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_by_P2581_F1" name="k_P0700_Cu_by_P2581_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r25" name="P0700.Cu by P2581 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu_P0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0700" stoichiometry="1"/>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_Cu_by_P2581_R1 </ci>
+              <ci> P2581_Cu_P0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_by_P2581_R1" name="k_P0700_Cu_by_P2581_R1" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r26" name="P0700.Cu by P2581 F2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu_P0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0700_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_Cu_by_P2581_F2 </ci>
+              <ci> P2581_Cu_P0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_by_P2581_F2" name="k_P0700_Cu_by_P2581_F2" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r27" name="P0700.Cu dissociation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0700_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P0700" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_Cu_dissociation </ci>
+              <ci> P0700_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_dissociation" name="k_P0700_Cu_dissociation" value="0.0001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r28" name="P0700.Cu non-specific" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P0700" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0700_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0700_Cu_non_specific </ci>
+                <ci> P0700 </ci>
+                <ci> Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_Cu_non_specific" name="k_P0700_Cu_non_specific" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r29" name="P0700 degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0700" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_degradation </ci>
+              <ci> P0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_degradation" name="k_P0700_degradation" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r30" name="P0700 translation" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="P0700" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="M0700"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0700_translation </ci>
+              <ci> M0700 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0700_translation" name="k_P0700_translation" value="0.002331" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r31" name="P0702.Cu bind" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0702_Cu_bind </ci>
+                <ci> P0702 </ci>
+                <ci> Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_bind" name="k_P0702_Cu_bind" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r32" name="P0702.Cu by P1179 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0702_Cu_by_P1179_F1 </ci>
+                <ci> P0702 </ci>
+                <ci> P1179_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_by_P1179_F1" name="k_P0702_Cu_by_P1179_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r33" name="P0702.Cu by P2581 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0702_Cu_by_P2581_F1 </ci>
+                <ci> P0702 </ci>
+                <ci> P2581_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_by_P2581_F1" name="k_P0702_Cu_by_P2581_F1" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r34" name="P0702.Cu by P2581 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0702_Cu_by_P2581_R1 </ci>
+              <ci> P0702_Cu_P2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_by_P2581_R1" name="k_P0702_Cu_by_P2581_R1" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r35" name="P0702.Cu by Q F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Q_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_Q" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P0702_Cu_by_Q_F1 </ci>
+                <ci> P0702 </ci>
+                <ci> Q_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_by_Q_F1" name="k_P0702_Cu_by_Q_F1" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r36" name="P0702.Cu debind" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0702_Cu_debind </ci>
+              <ci> P0702_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_debind" name="k_P0702_Cu_debind" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r37" name="P0702.Cu degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0702_Cu_degradation </ci>
+              <ci> P0702_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_Cu_degradation" name="k_P0702_Cu_degradation" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r38" name="P0702 degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0702_degradation </ci>
+              <ci> P0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_degradation" name="k_P0702_degradation" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r39" name="P0702 translation" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="M0702"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P0702_translation </ci>
+              <ci> M0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P0702_translation" name="k_P0702_translation" value="0.0289855" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r40" name="P2581.Cu bind" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P2581_Cu_bind </ci>
+                <ci> P2581 </ci>
+                <ci> Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_bind" name="k_P2581_Cu_bind" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r41" name="P2581.Cu by P1179 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu_P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P2581_Cu_by_P1179_F1 </ci>
+                <ci> P2581 </ci>
+                <ci> P1179_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_by_P1179_F1" name="k_P2581_Cu_by_P1179_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r42" name="P2581.Cu by P0702 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P2581_Cu_by_P0702_F1 </ci>
+                <ci> P2581 </ci>
+                <ci> P0702_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_by_P0702_F1" name="k_P2581_Cu_by_P0702_F1" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r43" name="P2581.Cu by P0702 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P2581_Cu_by_P0702_R1 </ci>
+              <ci> P0702_Cu_P2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_by_P0702_R1" name="k_P2581_Cu_by_P0702_R1" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r44" name="P2581.Cu by Q F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Q_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu_Q" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P2581_Cu_by_Q_F1 </ci>
+                <ci> P2581 </ci>
+                <ci> Q_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_by_Q_F1" name="k_P2581_Cu_by_Q_F1" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r45" name="P2581.Cu debind" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P2581_Cu_debind </ci>
+              <ci> P2581_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_debind" name="k_P2581_Cu_debind" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r46" name="P2581.Cu degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P2581_Cu_degradation </ci>
+              <ci> P2581_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_Cu_degradation" name="k_P2581_Cu_degradation" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r47" name="P2581 degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P2581_degradation </ci>
+              <ci> P2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_degradation" name="k_P2581_degradation" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r48" name="P2581 translation" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="M2581"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P2581_translation </ci>
+              <ci> M2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P2581_translation" name="k_P2581_translation" value="0.030769231" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r49" name="P1179.Cu by P0702 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P1179_Cu_by_P0702_F1 </ci>
+                <ci> P1179 </ci>
+                <ci> P0702_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_by_P0702_F1" name="k_P1179_Cu_by_P0702_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r50" name="P1179.Cu by P0702 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P1179_Cu_by_P0702_R1 </ci>
+              <ci> P0702_Cu_P1179 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_by_P0702_R1" name="k_P1179_Cu_by_P0702_R1" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r51" name="P1179.Cu by P0702 F2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P1179_Cu_by_P0702_F2 </ci>
+              <ci> P0702_Cu_P1179 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_by_P0702_F2" name="k_P1179_Cu_by_P0702_F2" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r52" name="P1179.Cu by P2581 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu_P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P1179_Cu_by_P2581_F1 </ci>
+                <ci> P1179 </ci>
+                <ci> P2581_Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_by_P2581_F1" name="k_P1179_Cu_by_P2581_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r53" name="P1179.Cu by P2581 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu_P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P1179_Cu_by_P2581_R1 </ci>
+              <ci> P2581_Cu_P1179 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_by_P2581_R1" name="k_P1179_Cu_by_P2581_R1" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r54" name="P1179.Cu by P2581 F2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu_P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P1179_Cu_by_P2581_F2 </ci>
+              <ci> P2581_Cu_P1179 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_by_P2581_F2" name="k_P1179_Cu_by_P2581_F2" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r55" name="P1179.Cu dissociation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_P1179_Cu_dissociation </ci>
+              <ci> P1179_Cu </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_dissociation" name="k_P1179_Cu_dissociation" value="0.0001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r56" name="P1179.Cu non-specific" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P1179_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_P1179_Cu_non_specific </ci>
+                <ci> P1179 </ci>
+                <ci> Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_P1179_Cu_non_specific" name="k_P1179_Cu_non_specific" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r57" name="Pgfp degradation" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Pgfp" stoichiometry="1"/>
+        </listOfReactants>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Pgfp_degradation </ci>
+              <ci> Pgfp </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Pgfp_degradation" name="k_Pgfp_degradation" value="0" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r58" name="Pgfp translation" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="Pgfp" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="Mgfp"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Pgfp_translation </ci>
+              <ci> Mgfp </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Pgfp_translation" name="k_Pgfp_translation" value="0.008333" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r59" name="Q.Cu by P0702 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+          <speciesReference species="Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu_Q" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_Q_Cu_by_P0702_F1 </ci>
+                <ci> P0702_Cu </ci>
+                <ci> Q </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_by_P0702_F1" name="k_Q_Cu_by_P0702_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r60" name="Q.Cu by P0702 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P0702_Cu" stoichiometry="1"/>
+          <speciesReference species="Q" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Q_Cu_by_P0702_R1 </ci>
+              <ci> P0702_Cu_Q </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_by_P0702_R1" name="k_Q_Cu_by_P0702_R1" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r61" name="Q.Cu by P0702 F2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P0702_Cu_Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Q_Cu" stoichiometry="1"/>
+          <speciesReference species="P0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Q_Cu_by_P0702_F2 </ci>
+              <ci> P0702_Cu_Q </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_by_P0702_F2" name="k_Q_Cu_by_P0702_F2" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r62" name="Q.Cu by P2581 F1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+          <speciesReference species="Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu_Q" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_Q_Cu_by_P2581_F1 </ci>
+                <ci> P2581_Cu </ci>
+                <ci> Q </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_by_P2581_F1" name="k_Q_Cu_by_P2581_F1" value="0.01" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r63" name="Q.Cu by P2581 R1" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu_Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="P2581_Cu" stoichiometry="1"/>
+          <speciesReference species="Q" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Q_Cu_by_P2581_R1 </ci>
+              <ci> P2581_Cu_Q </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_by_P2581_R1" name="k_Q_Cu_by_P2581_R1" value="0.1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r64" name="Q.Cu by P2581 F2" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="P2581_Cu_Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Q_Cu" stoichiometry="1"/>
+          <speciesReference species="P2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> k_Q_Cu_by_P2581_F2 </ci>
+              <ci> P2581_Cu_Q </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_by_P2581_F2" name="k_Q_Cu_by_P2581_F2" value="1" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r65" name="Q.Cu non-specific" reversible="false" fast="false">
+        <listOfReactants>
+          <speciesReference species="Cu" stoichiometry="1"/>
+          <speciesReference species="Q" stoichiometry="1"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="Q_Cu" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="V"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci> k_Q_Cu_non_specific </ci>
+                <ci> Q </ci>
+                <ci> Cu </ci>
+              </apply>
+              <apply>
+                <power/>
+                <ci> V </ci>
+                <cn> 2 </cn>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="k_Q_Cu_non_specific" name="k_Q_Cu_non_specific" value="0.001" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r66" name="V growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="V" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> mu </ci>
+              <ci> V </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r67" name="Q growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="Q" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P0702_Cu_Q"/>
+          <modifierSpeciesReference species="P2581_Cu_Q"/>
+          <modifierSpeciesReference species="Q_Cu"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P0702_Cu_Q </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P2581_Cu_Q </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> Q </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> Q_Cu </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r68" name="P1179 growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="P1179" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P0702_Cu_P1179"/>
+          <modifierSpeciesReference species="P2581_Cu_P1179"/>
+          <modifierSpeciesReference species="P1179_Cu"/>
+          <modifierSpeciesReference species="P1179_Cu_D0700"/>
+          <modifierSpeciesReference species="P1179_Cu_D0702"/>
+          <modifierSpeciesReference species="P1179_Cu_D2581"/>
+          <modifierSpeciesReference species="P1179_Cu_Dgfp"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P0702_Cu_P1179 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P2581_Cu_P1179 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_D0700 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_D0702 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_D2581 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_Dgfp </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r69" name="D0700 growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="D0700" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P1179_Cu_D0700"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> D0700 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_D0700 </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r70" name="D0702 growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="D0702" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P1179_Cu_D0702"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_D0702 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> D0702 </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r71" name="D2581 growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="D2581" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P1179_Cu_D2581"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_D2581 </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> D2581 </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r72" name="Dgfp growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="Dgfp" stoichiometry="1"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="P1179_Cu_Dgfp"/>
+        </listOfModifiers>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <plus/>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> Dgfp </ci>
+              </apply>
+              <apply>
+                <times/>
+                <ci> mu </ci>
+                <ci> P1179_Cu_Dgfp </ci>
+              </apply>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r73" name="OE0702 growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="OE0702" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> mu </ci>
+              <ci> OE0702 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r74" name="OE2581 growth" reversible="false" fast="false">
+        <listOfProducts>
+          <speciesReference species="OE2581" stoichiometry="1"/>
+        </listOfProducts>
+        <kineticLaw timeUnits="second" substanceUnits="item">
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <ci> mu </ci>
+              <ci> OE2581 </ci>
+            </apply>
+          </math>
+          <listOfParameters>
+            <parameter id="mu" name="mu" value="2.75058404984105e-005" constant="true"/>
+          </listOfParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
